@@ -1,0 +1,522 @@
+[{
+  "_id": {
+    "$oid": "6815c0a865467912889558e1"
+  },
+  "template": {
+    "$oid": "680c9342f422e522cea56889"
+  },
+  "user": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "fields": {
+    "tên_cô_dâu": "Nguyễn Thị Hoa",
+    "danh_xưng_cô_dâu": "Thứ nữ",
+    "tên_cha_cô_dâu": "Nguyễn Văn Nam",
+    "tên_mẹ_cô_dâu": "Hồ Thị Kim",
+    "địa_chỉ_nhà_gái": "02, Điện Biên Phủ, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "tên_chú_rể": "Trần Văn Bình",
+    "danh_xưng_chú_rể": "Trưởng nam",
+    "tên_cha_chú_rể": "Trần Văn Lợi",
+    "tên_mẹ_chú_rể": "Đoàn Kim Loan",
+    "địa_chỉ_nhà_trai": "77 Lê Lợi, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "ảnh_1": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00318-scaled.jpg",
+    "ảnh_2": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00622-scaled.jpg",
+    "ảnh_3": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00840-scaled.jpg",
+    "ngày_cưới_dương_lịch": "12/05/2025",
+    "ngày_cưới_âm_lịch": "23 tháng 3 năm Ấy Tỵ",
+    "giờ_đón_khách": "10:00 AM",
+    "giờ_nhập_tiệc": "11:30 AM",
+    "địa_điểm_cưới": "Trung tâm tiệc cưới White Palace",
+    "địa_chỉ_cưới": "194 Hoàng Văn Thụ, Phường 9, Quận Phú Nhuận, TP.HCM",
+    "màu_chủ_đạo": "#d4af37",
+    "màu_nền": "#fff9f0",
+    "màu_phụ": "#8b4513"
+  },
+  "status": "published",
+  "slug": "TRANVANBINH-NGUYENTHIHOA",
+  "createdAt": {
+    "$date": "2025-05-03T07:07:20.991Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T07:07:20.997Z"
+  },
+  "__v": 0,
+  "brideName": "Nguyễn Thị Hoa",
+  "groomName": "Trần Văn Bình"
+},
+{
+  "_id": {
+    "$oid": "6815c1866546791288955946"
+  },
+  "template": {
+    "$oid": "680c9342f422e522cea56889"
+  },
+  "user": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "fields": {
+    "tên_cô_dâu": "Nguyễn Thị Hoa 2",
+    "danh_xưng_cô_dâu": "Thứ nữ",
+    "tên_cha_cô_dâu": "Nguyễn Văn Nam",
+    "tên_mẹ_cô_dâu": "Hồ Thị Kim",
+    "địa_chỉ_nhà_gái": "02, Điện Biên Phủ, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "tên_chú_rể": "Trần Văn Bình",
+    "danh_xưng_chú_rể": "Trưởng nam",
+    "tên_cha_chú_rể": "Trần Văn Lợi",
+    "tên_mẹ_chú_rể": "Đoàn Kim Loan",
+    "địa_chỉ_nhà_trai": "77 Lê Lợi, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "ảnh_1": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00318-scaled.jpg",
+    "ảnh_2": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00622-scaled.jpg",
+    "ảnh_3": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00840-scaled.jpg",
+    "ngày_cưới_dương_lịch": "12/05/2025",
+    "ngày_cưới_âm_lịch": "23 tháng 3 năm Ấy Tỵ",
+    "giờ_đón_khách": "10:00 AM",
+    "giờ_nhập_tiệc": "11:30 AM",
+    "địa_điểm_cưới": "Trung tâm tiệc cưới White Palace",
+    "địa_chỉ_cưới": "194 Hoàng Văn Thụ, Phường 9, Quận Phú Nhuận, TP.HCM",
+    "màu_chủ_đạo": "#d4af37",
+    "màu_nền": "#fff9f0",
+    "màu_phụ": "#8b4513"
+  },
+  "status": "published",
+  "slug": "TRANVANBINH-NGUYENTHIHOA2",
+  "createdAt": {
+    "$date": "2025-05-03T07:11:02.309Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T07:11:02.311Z"
+  },
+  "__v": 0,
+  "brideName": "Nguyễn Thị Hoa 2",
+  "groomName": "Trần Văn Bình"
+},
+{
+  "_id": {
+    "$oid": "6815c1cb65467912889559aa"
+  },
+  "template": {
+    "$oid": "680c9342f422e522cea56889"
+  },
+  "user": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "fields": {
+    "tên_cô_dâu": "Nguyễn Thị Hoa 3",
+    "danh_xưng_cô_dâu": "Thứ nữ",
+    "tên_cha_cô_dâu": "Nguyễn Văn Nam",
+    "tên_mẹ_cô_dâu": "Hồ Thị Kim",
+    "địa_chỉ_nhà_gái": "02, Điện Biên Phủ, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "tên_chú_rể": "Trần Văn Bình",
+    "danh_xưng_chú_rể": "Trưởng nam",
+    "tên_cha_chú_rể": "Trần Văn Lợi",
+    "tên_mẹ_chú_rể": "Đoàn Kim Loan",
+    "địa_chỉ_nhà_trai": "77 Lê Lợi, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "ảnh_1": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00318-scaled.jpg",
+    "ảnh_2": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00622-scaled.jpg",
+    "ảnh_3": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00840-scaled.jpg",
+    "ngày_cưới_dương_lịch": "12/05/2025",
+    "ngày_cưới_âm_lịch": "23 tháng 3 năm Ấy Tỵ",
+    "giờ_đón_khách": "10:00 AM",
+    "giờ_nhập_tiệc": "11:30 AM",
+    "địa_điểm_cưới": "Trung tâm tiệc cưới White Palace",
+    "địa_chỉ_cưới": "194 Hoàng Văn Thụ, Phường 9, Quận Phú Nhuận, TP.HCM",
+    "màu_chủ_đạo": "#d4af37",
+    "màu_nền": "#fff9f0",
+    "màu_phụ": "#8b4513"
+  },
+  "status": "published",
+  "slug": "TRANVANBINH-NGUYENTHIHOA3",
+  "createdAt": {
+    "$date": "2025-05-03T07:12:11.965Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T07:12:11.967Z"
+  },
+  "__v": 0,
+  "brideName": "Nguyễn Thị Hoa 2",
+  "groomName": "Trần Văn Bình"
+},
+{
+  "_id": {
+    "$oid": "6815c20265467912889559f6"
+  },
+  "template": {
+    "$oid": "680c9342f422e522cea56889"
+  },
+  "user": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "fields": {
+    "tên_cô_dâu": "Nguyễn Thị Hoa 4",
+    "danh_xưng_cô_dâu": "Thứ nữ",
+    "tên_cha_cô_dâu": "Nguyễn Văn Nam",
+    "tên_mẹ_cô_dâu": "Hồ Thị Kim",
+    "địa_chỉ_nhà_gái": "02, Điện Biên Phủ, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "tên_chú_rể": "Trần Văn Bình",
+    "danh_xưng_chú_rể": "Trưởng nam",
+    "tên_cha_chú_rể": "Trần Văn Lợi",
+    "tên_mẹ_chú_rể": "Đoàn Kim Loan",
+    "địa_chỉ_nhà_trai": "77 Lê Lợi, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "ảnh_1": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00318-scaled.jpg",
+    "ảnh_2": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00622-scaled.jpg",
+    "ảnh_3": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00840-scaled.jpg",
+    "ngày_cưới_dương_lịch": "12/05/2025",
+    "ngày_cưới_âm_lịch": "23 tháng 3 năm Ấy Tỵ",
+    "giờ_đón_khách": "10:00 AM",
+    "giờ_nhập_tiệc": "11:30 AM",
+    "địa_điểm_cưới": "Trung tâm tiệc cưới White Palace",
+    "địa_chỉ_cưới": "194 Hoàng Văn Thụ, Phường 9, Quận Phú Nhuận, TP.HCM",
+    "màu_chủ_đạo": "#d4af37",
+    "màu_nền": "#fff9f0",
+    "màu_phụ": "#8b4513"
+  },
+  "status": "published",
+  "slug": "TRANVANBINH-NGUYENTHIHOA4",
+  "createdAt": {
+    "$date": "2025-05-03T07:13:06.243Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T07:13:06.245Z"
+  },
+  "__v": 0,
+  "brideName": "Nguyễn Thị Hoa 4",
+  "groomName": "Trần Văn Bình"
+},
+{
+  "_id": {
+    "$oid": "6815c2176546791288955a29"
+  },
+  "template": {
+    "$oid": "680c9342f422e522cea56889"
+  },
+  "user": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "fields": {
+    "tên_cô_dâu": "Nguyễn Thị Hoa 5",
+    "danh_xưng_cô_dâu": "Thứ nữ",
+    "tên_cha_cô_dâu": "Nguyễn Văn Nam",
+    "tên_mẹ_cô_dâu": "Hồ Thị Kim",
+    "địa_chỉ_nhà_gái": "02, Điện Biên Phủ, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "tên_chú_rể": "Trần Văn Bình",
+    "danh_xưng_chú_rể": "Trưởng nam",
+    "tên_cha_chú_rể": "Trần Văn Lợi",
+    "tên_mẹ_chú_rể": "Đoàn Kim Loan",
+    "địa_chỉ_nhà_trai": "77 Lê Lợi, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "ảnh_1": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00318-scaled.jpg",
+    "ảnh_2": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00622-scaled.jpg",
+    "ảnh_3": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00840-scaled.jpg",
+    "ngày_cưới_dương_lịch": "12/05/2025",
+    "ngày_cưới_âm_lịch": "23 tháng 3 năm Ấy Tỵ",
+    "giờ_đón_khách": "10:00 AM",
+    "giờ_nhập_tiệc": "11:30 AM",
+    "địa_điểm_cưới": "Trung tâm tiệc cưới White Palace",
+    "địa_chỉ_cưới": "194 Hoàng Văn Thụ, Phường 9, Quận Phú Nhuận, TP.HCM",
+    "màu_chủ_đạo": "#d4af37",
+    "màu_nền": "#fff9f0",
+    "màu_phụ": "#8b4513"
+  },
+  "status": "published",
+  "slug": "TRANVANBINH-NGUYENTHIHOA5",
+  "createdAt": {
+    "$date": "2025-05-03T07:13:27.636Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T07:13:27.638Z"
+  },
+  "__v": 0,
+  "brideName": "Nguyễn Thị Hoa 5",
+  "groomName": "Trần Văn Bình"
+},
+{
+  "_id": {
+    "$oid": "6815c25e6546791288955a75"
+  },
+  "template": {
+    "$oid": "680c9342f422e522cea56889"
+  },
+  "user": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "fields": {
+    "tên_cô_dâu": "Nguyễn Thị Hoa 6",
+    "danh_xưng_cô_dâu": "Thứ nữ",
+    "tên_cha_cô_dâu": "Nguyễn Văn Nam",
+    "tên_mẹ_cô_dâu": "Hồ Thị Kim",
+    "địa_chỉ_nhà_gái": "02, Điện Biên Phủ, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "tên_chú_rể": "Trần Văn Bình",
+    "danh_xưng_chú_rể": "Trưởng nam",
+    "tên_cha_chú_rể": "Trần Văn Lợi",
+    "tên_mẹ_chú_rể": "Đoàn Kim Loan",
+    "địa_chỉ_nhà_trai": "77 Lê Lợi, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "ảnh_1": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00318-scaled.jpg",
+    "ảnh_2": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00622-scaled.jpg",
+    "ảnh_3": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00840-scaled.jpg",
+    "ngày_cưới_dương_lịch": "12/05/2025",
+    "ngày_cưới_âm_lịch": "23 tháng 3 năm Ấy Tỵ",
+    "giờ_đón_khách": "10:00 AM",
+    "giờ_nhập_tiệc": "11:30 AM",
+    "địa_điểm_cưới": "Trung tâm tiệc cưới White Palace",
+    "địa_chỉ_cưới": "194 Hoàng Văn Thụ, Phường 9, Quận Phú Nhuận, TP.HCM",
+    "màu_chủ_đạo": "#d4af37",
+    "màu_nền": "#fff9f0",
+    "màu_phụ": "#8b4513"
+  },
+  "status": "published",
+  "slug": "TRANVANBINH-NGUYENTHIHOA6",
+  "createdAt": {
+    "$date": "2025-05-03T07:14:38.515Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T07:14:38.518Z"
+  },
+  "__v": 0,
+  "brideName": "Nguyễn Thị Hoa 6",
+  "groomName": "Trần Văn Bình"
+},
+{
+  "_id": {
+    "$oid": "6819390f3b205481029989f6"
+  },
+  "template": {
+    "$oid": "68193082ff27b7470539f429"
+  },
+  "user": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "fields": {
+    "tiêu_đề_thiệp": "Save the date",
+    "tên_cô_dâu": "Nguyễn Thị Hoa",
+    "tên_chú_rể": "Trần Văn Nam 1",
+    "màu_chủ_đạo": "#8B0000",
+    "màu_phụ": "#B22222",
+    "màu_nhấn": "#D4AF37",
+    "màu_nền": "#8B0000",
+    "màu_chữ": "#333333",
+    "ảnh_cô_dâu_chú_rể_1": "https://tonywedding.vn/wp-content/uploads/2022/02/1-55-3.jpg",
+    "ngày_cưới_dương_lịch": "12/12/2025",
+    "ngày_cưới_âm_lịch": "12/12/2025",
+    "giờ_đón_khách": "10:00",
+    "giờ_nhập_tiệc": "11:00",
+    "tên_cha_chú_rể": "Trần Văn Bình",
+    "tên_mẹ_chú_rể": "Thái Thị Hân",
+    "địa_chỉ_nhà_trai": "02 Phạm Ngũ Lão, Tp. Tam Kỳ",
+    "tên_cha_cô_dâu": "Nguyễn Thành Minh",
+    "tên_mẹ_cô_dâu": "Đoàn Thị Hồng",
+    "địa_chỉ_nhà_gái": "10 Hùng Vương, Tp. Tam Kỳ",
+    "quote_dòng_1": "“Hôn nhân là chuyện cả đời,",
+    "quote_dòng_2": "Yêu người vừa ý, cưới người mình thương...\"",
+    "ảnh_cô_dâu_chú_rể_2": "https://tonywedding.vn/wp-content/uploads/2022/02/1-71-2.jpg",
+    "tên_địa_điểm": "Nhà hàng Thịnh Phát",
+    "địa_chỉ_địa_điểm": "130 Hùng Vương, Tp. Tam Kỳ",
+    "ảnh_bản_đồ": "https://b.basemaps.cartocdn.com/rastertiles/voyager/16/52175/30797@2x.png",
+    "link_bản_đồ": "https://maps.app.goo.gl/n9mXK8Bz5yYFyHcs6",
+    "ảnh_cô_dâu_chú_rể_3": "https://tonywedding.vn/wp-content/uploads/2022/02/1-75-2.jpg",
+    "lời_cảm_ơn_1": "Xin cảm ơn",
+    "lời_cảm_ơn_2": "Sự hiện diện của bạn là niềm vinh hạnh của chúng tôi",
+    "ảnh_cô_dâu_chú_rể_4": "https://tonywedding.vn/wp-content/uploads/2022/02/1-55-3.jpg",
+    "mã_qr": "https://qrcode-gen.com/images/qrcode-default.png",
+    "số_điện_thoại_liên_hệ": "0385.835.634"
+  },
+  "groomName": "Trần Văn Nam 1",
+  "brideName": "Nguyễn Thị Hoa",
+  "status": "published",
+  "slug": "TRANVANNAM1-NGUYENTHIHOA",
+  "createdAt": {
+    "$date": "2025-05-05T22:17:51.742Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-05T22:17:51.750Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68193a8c3b20548102998a81"
+  },
+  "template": {
+    "$oid": "68193082ff27b7470539f429"
+  },
+  "user": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "fields": {
+    "tiêu_đề_thiệp": "Save the date",
+    "tên_cô_dâu": "Hà Thanh Thanh",
+    "tên_chú_rể": "Lưu Nhữ Mạc",
+    "màu_chủ_đạo": "#8B0000",
+    "màu_phụ": "#B22222",
+    "màu_nhấn": "#D4AF37",
+    "màu_nền": "#8B0000",
+    "màu_chữ": "#333333",
+    "ảnh_cô_dâu_chú_rể_1": "https://tonywedding.vn/wp-content/uploads/2022/02/1-55-3.jpg",
+    "ngày_cưới_dương_lịch": "12/12/2025",
+    "ngày_cưới_âm_lịch": "12/12/2025",
+    "giờ_đón_khách": "10:00",
+    "giờ_nhập_tiệc": "11:00",
+    "tên_cha_chú_rể": "Trần Văn Bình",
+    "tên_mẹ_chú_rể": "Thái Thị Hân",
+    "địa_chỉ_nhà_trai": "02 Phạm Ngũ Lão, Tp. Tam Kỳ",
+    "tên_cha_cô_dâu": "Nguyễn Thành Minh",
+    "tên_mẹ_cô_dâu": "Đoàn Thị Hồng",
+    "địa_chỉ_nhà_gái": "10 Hùng Vương, Tp. Tam Kỳ",
+    "quote_dòng_1": "“Hôn nhân là chuyện cả đời,",
+    "quote_dòng_2": "Yêu người vừa ý, cưới người mình thương...\"",
+    "ảnh_cô_dâu_chú_rể_2": "https://tonywedding.vn/wp-content/uploads/2022/02/1-71-2.jpg",
+    "tên_địa_điểm": "Nhà hàng Thịnh Phát",
+    "địa_chỉ_địa_điểm": "130 Hùng Vương, Tp. Tam Kỳ",
+    "ảnh_bản_đồ": "https://b.basemaps.cartocdn.com/rastertiles/voyager/16/52175/30797@2x.png",
+    "link_bản_đồ": "https://maps.app.goo.gl/n9mXK8Bz5yYFyHcs6",
+    "ảnh_cô_dâu_chú_rể_3": "https://tonywedding.vn/wp-content/uploads/2022/02/1-75-2.jpg",
+    "lời_cảm_ơn_1": "Xin cảm ơn",
+    "lời_cảm_ơn_2": "Sự hiện diện của bạn là niềm vinh hạnh của chúng tôi",
+    "ảnh_cô_dâu_chú_rể_4": "https://tonywedding.vn/wp-content/uploads/2022/02/1-55-3.jpg",
+    "mã_qr": "https://qrcode-gen.com/images/qrcode-default.png",
+    "số_điện_thoại_liên_hệ": "0385.835.634"
+  },
+  "groomName": "Lưu Nhữ Mạc",
+  "brideName": "Hà Thanh Thanh",
+  "status": "published",
+  "slug": "LUUNHUMAC-HATHANHTHANH",
+  "createdAt": {
+    "$date": "2025-05-05T22:24:12.365Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-05T22:24:12.369Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6819aca0636c484fd0decb69"
+  },
+  "template": {
+    "$oid": "680c9342f422e522cea56889"
+  },
+  "user": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "fields": {
+    "tên_cô_dâu": "Nguyễn Thị Kim Nhung",
+    "danh_xưng_cô_dâu": "Thứ nữ",
+    "tên_cha_cô_dâu": "Nguyễn Văn Nam",
+    "tên_mẹ_cô_dâu": "Hồ Thị Kim",
+    "địa_chỉ_nhà_gái": "02, Điện Biên Phủ, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "tên_chú_rể": "Đoàn Văn Hiệp",
+    "danh_xưng_chú_rể": "Trưởng nam",
+    "tên_cha_chú_rể": "Trần Văn Lợi",
+    "tên_mẹ_chú_rể": "Đoàn Kim Loan",
+    "địa_chỉ_nhà_trai": "77 Lê Lợi, TP. Tam Kỳ, Tỉnh Quảng Nam",
+    "ảnh_1": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00318-scaled.jpg",
+    "ảnh_2": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00622-scaled.jpg",
+    "ảnh_3": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00840-scaled.jpg",
+    "ngày_cưới_dương_lịch": "12/05/2025",
+    "ngày_cưới_âm_lịch": "23 tháng 3 năm Ấy Tỵ",
+    "giờ_đón_khách": "10:00 AM",
+    "giờ_nhập_tiệc": "11:30 AM",
+    "địa_điểm_cưới": "Trung tâm tiệc cưới White Palace",
+    "địa_chỉ_cưới": "194 Hoàng Văn Thụ, Phường 9, Quận Phú Nhuận, TP.HCM",
+    "màu_chủ_đạo": "#d4af37",
+    "màu_nền": "#fff9f0",
+    "màu_phụ": "#8b4513"
+  },
+  "groomName": "Đoàn Văn Hiệp",
+  "brideName": "Nguyễn Thị Kim Nhung",
+  "status": "published",
+  "slug": "ĐOANVANHIEP-NGUYENTHIKIMNHUNG",
+  "createdAt": {
+    "$date": "2025-05-06T06:30:56.069Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-06T06:30:56.072Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6819c903011b0d2e9169893f"
+  },
+  "template": {
+    "$oid": "68193082ff27b7470539f429"
+  },
+  "user": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "fields": {
+    "tiêu_đề_thiệp": "Thiệp mời cưới",
+    "tên_cô_dâu": "Đoàn Thị Anh",
+    "tên_chú_rể": "Trần Văn Nam",
+    "màu_chủ_đạo": "#8B0000",
+    "màu_phụ": "#B22222",
+    "màu_nhấn": "#D4AF37",
+    "màu_nền": "#8B0000",
+    "màu_chữ": "#333333",
+    "ảnh_cô_dâu_chú_rể_1": "https://tonywedding.vn/wp-content/uploads/2022/02/1-55-3.jpg",
+    "ngày_cưới_dương_lịch": "12/12/2025",
+    "ngày_cưới_âm_lịch": "12/12/2025",
+    "giờ_đón_khách": "10:00",
+    "giờ_nhập_tiệc": "11:00",
+    "tên_cha_chú_rể": "Trần Văn Bình",
+    "tên_mẹ_chú_rể": "Thái Thị Hân",
+    "địa_chỉ_nhà_trai": "02 Phạm Ngũ Lão, Tp. Tam Kỳ",
+    "tên_cha_cô_dâu": "Nguyễn Thành Minh",
+    "tên_mẹ_cô_dâu": "Đoàn Thị Hồng",
+    "địa_chỉ_nhà_gái": "10 Hùng Vương, Tp. Tam Kỳ",
+    "quote_dòng_1": "“Hôn nhân là chuyện cả đời,",
+    "quote_dòng_2": "Yêu người vừa ý, cưới người mình thương...\"",
+    "ảnh_cô_dâu_chú_rể_2": "https://tonywedding.vn/wp-content/uploads/2022/02/1-71-2.jpg",
+    "tên_địa_điểm": "Nhà hàng Thịnh Phát",
+    "địa_chỉ_địa_điểm": "130 Hùng Vương, Tp. Tam Kỳ",
+    "ảnh_bản_đồ": "https://b.basemaps.cartocdn.com/rastertiles/voyager/16/52175/30797@2x.png",
+    "link_bản_đồ": "https://maps.app.goo.gl/n9mXK8Bz5yYFyHcs6",
+    "ảnh_cô_dâu_chú_rể_3": "https://tonywedding.vn/wp-content/uploads/2022/02/1-75-2.jpg",
+    "lời_cảm_ơn_1": "Xin cảm ơn",
+    "lời_cảm_ơn_2": "Sự hiện diện của bạn là niềm vinh hạnh của chúng tôi",
+    "ảnh_cô_dâu_chú_rể_4": "https://tonywedding.vn/wp-content/uploads/2022/02/1-55-3.jpg",
+    "mã_qr": "https://qrcode-gen.com/images/qrcode-default.png",
+    "số_điện_thoại_liên_hệ": "0385.835.634"
+  },
+  "groomName": "Trần Văn Nam",
+  "brideName": "Đoàn Thị Anh",
+  "status": "published",
+  "slug": "TRANVANNAM-ĐOANTHIANH",
+  "createdAt": {
+    "$date": "2025-05-06T08:32:03.977Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-06T08:32:03.981Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6820af6586207339a06d0279"
+  },
+  "template": {
+    "$oid": "6819cb88011b0d2e91698a6b"
+  },
+  "user": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "fields": {
+    "tên_cô_dâu": "Nguyễn Thị Bích",
+    "tên_chú_rể": "Trần Văn Nam",
+    "ngày_cưới": "12/05/2023",
+    "ngày_âm_lịch": "12/05/2023",
+    "giờ_đón_khách": "10:00",
+    "giờ_nhập_tiệc": "11:00",
+    "tên_địa_điểm": "Nhà hàng",
+    "địa_chỉ": "Địa chỉ"
+  },
+  "groomName": "Trần Văn Nam",
+  "brideName": "Nguyễn Thị Bích",
+  "status": "published",
+  "slug": "TRANVANNAM-NGUYENTHIBICH",
+  "createdAt": {
+    "$date": "2025-05-11T14:08:37.862Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-11T14:08:37.867Z"
+  },
+  "__v": 0
+}]

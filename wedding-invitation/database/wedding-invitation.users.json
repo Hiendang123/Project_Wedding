@@ -1,0 +1,112 @@
+[{
+  "_id": {
+    "$oid": "680775686adceb4f1e80bdf5"
+  },
+  "name": "admin",
+  "email": "admin@gmail.com",
+  "role": "admin",
+  "gender": "male",
+  "phone": "0385835634",
+  "password": "$2b$10$SgP9OKe9YqSS.bWlIEP2Nu3fPs39.13Q50hrsiAzVgxH8/jEmDcuK",
+  "address": "340/18B Trần Cao Vân, Thanh Khê",
+  "country": "Vietnam",
+  "dateOfBirth": {
+    "$date": "1997-05-06T00:00:00.000Z"
+  },
+  "profilePicture": "",
+  "status": "active",
+  "registeredAt": {
+    "$date": "2025-04-22T10:54:32.722Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "680b3adcf77432e089efaeec"
+  },
+  "name": "Lưu Quang Tính",
+  "email": "luuquangtinh6597@gmail.com",
+  "role": "user",
+  "gender": "other",
+  "phone": "1111111111",
+  "password": "$2b$10$MJCNY/rjQ7h0OVEvngpHzezvzV9RXN/2YAcPaq/VkO7YJgOdLou1W",
+  "address": "340/18B Trần Cao Vân, Thanh Khê",
+  "country": "Vietnam",
+  "dateOfBirth": {
+    "$date": {
+      "$numberLong": "-27080352000000"
+    }
+  },
+  "profilePicture": "",
+  "status": "active",
+  "registeredAt": {
+    "$date": "2025-04-25T07:33:48.132Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "680b3c57f77432e089efaef2"
+  },
+  "name": "Nguyễn Văn B",
+  "email": "sdasdasd@gmail.com",
+  "role": "user",
+  "gender": "male",
+  "phone": "1231231231",
+  "password": "$2b$10$MJCNY/rjQ7h0OVEvngpHzezvzV9RXN/2YAcPaq/VkO7YJgOdLou1W",
+  "address": "340/18B Trần Cao Vân, Thanh Khê",
+  "country": "Vietnam",
+  "dateOfBirth": {
+    "$date": "1997-05-06T00:00:00.000Z"
+  },
+  "profilePicture": "",
+  "status": "active",
+  "registeredAt": {
+    "$date": "2025-04-25T07:40:07.595Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681997bce1a126c9d418af78"
+  },
+  "name": "Nguyễn Văn A",
+  "email": "nguyenvana@gmail.com",
+  "role": "admin",
+  "gender": "male",
+  "phone": "0123456789",
+  "password": "$2b$10$6062Ph.UjWqHXzPCg4uXPe2uuYvOvXif8HBoRCh.uxsE43bLR2CWe",
+  "address": "340/18B Trần Cao Vân, Thanh Khê",
+  "country": "Vietnam",
+  "dateOfBirth": {
+    "$date": "1997-05-06T00:00:00.000Z"
+  },
+  "profilePicture": "",
+  "status": "suspended",
+  "registeredAt": {
+    "$date": "2025-05-06T05:01:48.052Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6819b7d726327f7e2cf4264d"
+  },
+  "name": "Trần Thị D",
+  "email": "tranthid@gmail.com",
+  "role": "user",
+  "gender": "female",
+  "phone": "0123456987",
+  "password": "$2b$10$l0sd.wSm8Y6ibcBbPPmXTe6nKy3f01WQpZoU8ujFgvsZ8hKnauhIi",
+  "address": "21 Hàn Thuyên, Phường An Mỹ",
+  "country": "Vietnam",
+  "dateOfBirth": {
+    "$date": "1997-05-06T00:00:00.000Z"
+  },
+  "profilePicture": "default.jpg",
+  "status": "active",
+  "registeredAt": {
+    "$date": "2025-05-06T07:18:47.886Z"
+  },
+  "__v": 0
+}]

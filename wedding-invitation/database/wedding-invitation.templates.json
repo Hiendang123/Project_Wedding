@@ -1,0 +1,906 @@
+[{
+  "_id": {
+    "$oid": "680c454575e55699bf5e53b7"
+  },
+  "name": "Mẫu thiệp số 1",
+  "category": "romantic",
+  "price": "free",
+  "status": "published",
+  "html": "<div class=\"wedding-card\">\r\n  <header>\r\n    <h1>{{tên_cô_dâu}} & {{tên_chú_rể}}</h1>\r\n    <p class=\"date\">{{ngày_cưới}}</p>\r\n  </header>\r\n  \r\n  <main>\r\n    <p class=\"invitation\">\r\n      Trân trọng kính mời\r\n    </p>\r\n    \r\n    <p class=\"message\">\r\n      Tới dự lễ thành hôn của chúng tôi\r\n    </p>\r\n    \r\n    <div class=\"details\">\r\n      <div class=\"detail\">\r\n        <h3>Thời gian</h3>\r\n        <p>{{giờ_cưới}}, {{ngày_cưới}}</p>\r\n      </div>\r\n      \r\n      <div class=\"detail\">\r\n        <h3>Địa điểm</h3>\r\n        <p>{{địa_điểm_cưới}}</p>\r\n        <p>{{địa_chỉ_cưới}}</p>\r\n      </div>\r\n    </div>\r\n    \r\n    <button id=\"rsvp-btn\">Xác nhận tham dự</button>\r\n  </main>\r\n  \r\n  <footer>\r\n    <p>Rất hân hạnh được đón tiếp</p>\r\n  </footer>\r\n</div>",
+  "css": "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  font-family: 'Times New Roman', serif;\r\n  background-color: {{màu_nền}};\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  min-height: 100vh;\r\n  padding: 20px;\r\n}\r\n\r\n.wedding-card {\r\n  max-width: 500px;\r\n  width: 100%;\r\n  background-color: white;\r\n  border-radius: 10px;\r\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);\r\n  padding: 40px;\r\n  text-align: center;\r\n}\r\n\r\nheader {\r\n  margin-bottom: 30px;\r\n}\r\n\r\nh1 {\r\n  font-size: 36px;\r\n  color: {{màu_chủ_đạo}};\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.date {\r\n  font-size: 18px;\r\n  color: #9d174d;\r\n  font-style: italic;\r\n}\r\n\r\nmain {\r\n  margin-bottom: 30px;\r\n}\r\n\r\n.invitation {\r\n  font-size: 24px;\r\n  margin-bottom: 20px;\r\n  color: #9d174d;\r\n}\r\n\r\n.message {\r\n  font-size: 18px;\r\n  margin-bottom: 30px;\r\n}\r\n\r\n.details {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 30px;\r\n}\r\n\r\n.detail {\r\n  flex: 1;\r\n  padding: 0 10px;\r\n}\r\n\r\n.detail h3 {\r\n  font-size: 16px;\r\n  color: {{màu_chủ_đạo}};\r\n  margin-bottom: 10px;\r\n}\r\n\r\n#rsvp-btn {\r\n  background-color: {{màu_chủ_đạo}};\r\n  color: white;\r\n  border: none;\r\n  padding: 10px 30px;\r\n  border-radius: 5px;\r\n  font-size: 16px;\r\n  cursor: pointer;\r\n  transition: background-color 0.3s;\r\n}\r\n\r\n#rsvp-btn:hover {\r\n  background-color: #9d174d;\r\n}\r\n\r\nfooter {\r\n  font-style: italic;\r\n  color: #9d174d;\r\n}",
+  "js": "document.addEventListener('DOMContentLoaded', function() {\r\n  const rsvpButton = document.getElementById('rsvp-btn');\r\n  \r\n  rsvpButton.addEventListener('click', function() {\r\n    alert('Cảm ơn bạn đã xác nhận tham dự!');\r\n    // Đây là nơi bạn có thể thêm mã để gửi form xác nhận tham dự\r\n  });\r\n});",
+  "dynamicFields": [
+    {
+      "id": "field_1",
+      "name": "tên_cô_dâu",
+      "type": "text",
+      "defaultValue": "Nguyễn Thị Hoa",
+      "description": "Tên của cô dâu",
+      "_id": {
+        "$oid": "680c454575e55699bf5e53b8"
+      }
+    },
+    {
+      "id": "field_2",
+      "name": "tên_chú_rể",
+      "type": "text",
+      "defaultValue": "Trần Văn Minh",
+      "description": "Tên của chú rể",
+      "_id": {
+        "$oid": "680c454575e55699bf5e53b9"
+      }
+    },
+    {
+      "id": "field_3",
+      "name": "ngày_cưới",
+      "type": "date",
+      "defaultValue": "12/05/2024",
+      "description": "Ngày tổ chức lễ cưới",
+      "_id": {
+        "$oid": "680c454575e55699bf5e53ba"
+      }
+    },
+    {
+      "id": "field_4",
+      "name": "giờ_cưới",
+      "type": "text",
+      "defaultValue": "10:00 AM",
+      "description": "Giờ tổ chức lễ cưới",
+      "_id": {
+        "$oid": "680c454575e55699bf5e53bb"
+      }
+    },
+    {
+      "id": "field_5",
+      "name": "địa_điểm_cưới",
+      "type": "location",
+      "defaultValue": "Trung tâm tiệc cưới XYZ",
+      "description": "Tên địa điểm tổ chức",
+      "_id": {
+        "$oid": "680c454575e55699bf5e53bc"
+      }
+    },
+    {
+      "id": "field_6",
+      "name": "địa_chỉ_cưới",
+      "type": "text",
+      "defaultValue": "123 Đường ABC, Quận DEF",
+      "description": "Địa chỉ chi tiết",
+      "_id": {
+        "$oid": "680c454575e55699bf5e53bd"
+      }
+    },
+    {
+      "id": "field_7",
+      "name": "màu_chủ_đạo",
+      "type": "color",
+      "defaultValue": "#db2777",
+      "description": "Màu sắc chủ đạo của thiệp",
+      "_id": {
+        "$oid": "680c454575e55699bf5e53be"
+      }
+    },
+    {
+      "id": "field_8",
+      "name": "màu_nền",
+      "type": "color",
+      "defaultValue": "#fdf2f8",
+      "description": "Màu nền của thiệp",
+      "_id": {
+        "$oid": "680c454575e55699bf5e53bf"
+      }
+    }
+  ],
+  "thumbnail": "/templates/thumbnails/1746511452537-251689663.png",
+  "rating": 0,
+  "reviewCount": 0,
+  "createdAt": {
+    "$date": "2025-04-26T02:30:29.995Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-06T06:04:12.541Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "680c8149ebbef3488abdb46f"
+  },
+  "name": "Mẫu thiệp 2",
+  "category": "romantic",
+  "price": "free",
+  "status": "published",
+  "html": "<div class=\"wedding-invitation\">\r\n  <!-- Khung viền trang trí -->\r\n  <div class=\"border-frame\"></div>\r\n  \r\n  <!-- Hoa trang trí góc -->\r\n  <div class=\"floral-corner top-left\"></div>\r\n  <div class=\"floral-corner top-right\"></div>\r\n  <div class=\"floral-corner bottom-left\"></div>\r\n  <div class=\"floral-corner bottom-right\"></div>\r\n  \r\n  <!-- Phần đầu thiệp -->\r\n  <header>\r\n    <div class=\"header-ornament\"></div>\r\n    <h4 class=\"pre-names\">WEDDING INVITATION</h4>\r\n    \r\n    <div class=\"names-container\">\r\n      <h1 class=\"groom-name\">{{tên_chú_rể}}</h1>\r\n      <div class=\"ampersand\">&</div>\r\n      <h1 class=\"bride-name\">{{tên_cô_dâu}}</h1>\r\n    </div>\r\n    \r\n    <div class=\"date-container\">\r\n      <div class=\"date-line\"></div>\r\n      <p class=\"wedding-date\">{{ngày_cưới}}</p>\r\n      <div class=\"date-line\"></div>\r\n    </div>\r\n  </header>\r\n  \r\n  <!-- Phần chính của thiệp -->\r\n  <main>\r\n    <div class=\"invitation-text\">\r\n      <p class=\"invitation-intro\">Trân trọng kính mời</p>\r\n      <p class=\"invitation-message\">Tới dự lễ thành hôn của chúng tôi</p>\r\n    </div>\r\n    \r\n    <div class=\"divider\">\r\n      <div class=\"divider-line\"></div>\r\n      <div class=\"divider-icon\"></div>\r\n      <div class=\"divider-line\"></div>\r\n    </div>\r\n    \r\n    <div class=\"wedding-details\">\r\n      <div class=\"detail-item\">\r\n        <div class=\"detail-icon time-icon\"></div>\r\n        <h3>THỜI GIAN</h3>\r\n        <p>{{giờ_cưới}}</p>\r\n        <p>{{ngày_cưới}}</p>\r\n      </div>\r\n      \r\n      <div class=\"detail-item\">\r\n        <div class=\"detail-icon location-icon\"></div>\r\n        <h3>ĐỊA ĐIỂM</h3>\r\n        <p class=\"venue\">{{địa_điểm_cưới}}</p>\r\n        <p class=\"address\">{{địa_chỉ_cưới}}</p>\r\n      </div>\r\n    </div>\r\n    \r\n    <button id=\"rsvp-btn\" class=\"rsvp-button\">\r\n      <span>Xác nhận tham dự</span>\r\n    </button>\r\n  </main>\r\n  \r\n  <!-- Phần chân thiệp -->\r\n  <footer>\r\n    <div class=\"footer-ornament\"></div>\r\n    <p class=\"footer-text\">Rất hân hạnh được đón tiếp</p>\r\n  </footer>\r\n</div>",
+  "css": "/* Reset và font cơ bản */\r\n* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\n@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');\r\n\r\nbody {\r\n  font-family: 'Cormorant Garamond', serif;\r\n  background-color: {{màu_nền}};\r\n  color: #333;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  min-height: 100vh;\r\n  padding: 20px;\r\n  line-height: 1.6;\r\n  background-image: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 100%);\r\n  background-size: cover;\r\n}\r\n\r\n/* Container chính */\r\n.wedding-invitation {\r\n  position: relative;\r\n  max-width: 650px;\r\n  width: 100%;\r\n  background-color: white;\r\n  border-radius: 2px;\r\n  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);\r\n  padding: 80px 50px;\r\n  text-align: center;\r\n  overflow: hidden;\r\n}\r\n\r\n/* Khung viền trang trí */\r\n.border-frame {\r\n  position: absolute;\r\n  top: 15px;\r\n  left: 15px;\r\n  right: 15px;\r\n  bottom: 15px;\r\n  border: 1px solid rgba(212, 175, 55, 0.3);\r\n  pointer-events: none;\r\n}\r\n\r\n/* Hoa trang trí góc */\r\n.floral-corner {\r\n  position: absolute;\r\n  width: 150px;\r\n  height: 150px;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  opacity: 0.8;\r\n}\r\n\r\n.top-left {\r\n  top: 0;\r\n  left: 0;\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cpath d='M0,0 C50,20 20,50 0,150' stroke='%23d4af37' stroke-width='1' fill='none' opacity='0.3'/%3E%3Cpath d='M0,0 C30,40 40,30 150,0' stroke='%23d4af37' stroke-width='1' fill='none' opacity='0.3'/%3E%3Ccircle cx='20' cy='20' r='5' fill='%23d4af37' opacity='0.2'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23d4af37' opacity='0.2'/%3E%3Ccircle cx='60' cy='15' r='4' fill='%23d4af37' opacity='0.2'/%3E%3C/svg%3E\");\r\n}\r\n\r\n.top-right {\r\n  top: 0;\r\n  right: 0;\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cpath d='M150,0 C100,20 130,50 150,150' stroke='%23d4af37' stroke-width='1' fill='none' opacity='0.3'/%3E%3Cpath d='M150,0 C120,40 110,30 0,0' stroke='%23d4af37' stroke-width='1' fill='none' opacity='0.3'/%3E%3Ccircle cx='130' cy='20' r='5' fill='%23d4af37' opacity='0.2'/%3E%3Ccircle cx='110' cy='40' r='3' fill='%23d4af37' opacity='0.2'/%3E%3Ccircle cx='90' cy='15' r='4' fill='%23d4af37' opacity='0.2'/%3E%3C/svg%3E\");\r\n}\r\n\r\n.bottom-left {\r\n  bottom: 0;\r\n  left: 0;\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cpath d='M0,150 C50,130 20,100 0,0' stroke='%23d4af37' stroke-width='1' fill='none' opacity='0.3'/%3E%3Cpath d='M0,150 C30,110 40,120 150,150' stroke='%23d4af37' stroke-width='1' fill='none' opacity='0.3'/%3E%3Ccircle cx='20' cy='130' r='5' fill='%23d4af37' opacity='0.2'/%3E%3Ccircle cx='40' cy='110' r='3' fill='%23d4af37' opacity='0.2'/%3E%3Ccircle cx='60' cy='135' r='4' fill='%23d4af37' opacity='0.2'/%3E%3C/svg%3E\");\r\n}\r\n\r\n.bottom-right {\r\n  bottom: 0;\r\n  right: 0;\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cpath d='M150,150 C100,130 130,100 150,0' stroke='%23d4af37' stroke-width='1' fill='none' opacity='0.3'/%3E%3Cpath d='M150,150 C120,110 110,120 0,150' stroke='%23d4af37' stroke-width='1' fill='none' opacity='0.3'/%3E%3Ccircle cx='130' cy='130' r='5' fill='%23d4af37' opacity='0.2'/%3E%3Ccircle cx='110' cy='110' r='3' fill='%23d4af37' opacity='0.2'/%3E%3Ccircle cx='90' cy='135' r='4' fill='%23d4af37' opacity='0.2'/%3E%3C/svg%3E\");\r\n}\r\n\r\n/* Header */\r\nheader {\r\n  margin-bottom: 50px;\r\n  position: relative;\r\n}\r\n\r\n.header-ornament {\r\n  width: 100px;\r\n  height: 40px;\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'%3E%3Cpath d='M50,0 C60,10 70,20 100,20 L100,21 C70,21 60,31 50,40 C40,31 30,21 0,21 L0,20 C30,20 40,10 50,0 Z' fill='%23d4af37' fill-opacity='0.2'/%3E%3C/svg%3E\");\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  margin: 0 auto 25px;\r\n}\r\n\r\n.pre-names {\r\n  font-family: 'Montserrat', sans-serif;\r\n  font-size: 12px;\r\n  font-weight: 500;\r\n  letter-spacing: 4px;\r\n  color: #d4af37; /* Gold color */\r\n  margin-bottom: 25px;\r\n  opacity: 0.8;\r\n}\r\n\r\n.names-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  margin-bottom: 25px;\r\n}\r\n\r\n.groom-name, .bride-name {\r\n  font-family: 'Playfair Display', serif;\r\n  font-size: 42px;\r\n  font-weight: 400;\r\n  color: #333;\r\n  line-height: 1.2;\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\n\r\n.ampersand {\r\n  font-family: 'Great Vibes', cursive;\r\n  font-size: 60px;\r\n  color: #d4af37;\r\n  margin: 10px 0;\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\n\r\n.ampersand::before, .ampersand::after {\r\n  content: '';\r\n  position: absolute;\r\n  width: 30px;\r\n  height: 1px;\r\n  background-color: rgba(212, 175, 55, 0.3);\r\n  top: 50%;\r\n}\r\n\r\n.ampersand::before {\r\n  left: -40px;\r\n}\r\n\r\n.ampersand::after {\r\n  right: -40px;\r\n}\r\n\r\n.date-container {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin-top: 35px;\r\n}\r\n\r\n.date-line {\r\n  height: 1px;\r\n  width: 80px;\r\n  background: linear-gradient(90deg, transparent, #d4af37, transparent);\r\n  opacity: 0.5;\r\n}\r\n\r\n.wedding-date {\r\n  font-family: 'Montserrat', sans-serif;\r\n  font-size: 14px;\r\n  font-weight: 400;\r\n  letter-spacing: 2px;\r\n  margin: 0 20px;\r\n  color: #666;\r\n}\r\n\r\n/* Main content */\r\nmain {\r\n  position: relative;\r\n  z-index: 1;\r\n  margin-bottom: 50px;\r\n}\r\n\r\n.invitation-text {\r\n  margin-bottom: 40px;\r\n}\r\n\r\n.invitation-intro {\r\n  font-family: 'Cormorant Garamond', serif;\r\n  font-size: 22px;\r\n  font-weight: 500;\r\n  margin-bottom: 15px;\r\n  color: #333;\r\n}\r\n\r\n.invitation-message {\r\n  font-family: 'Cormorant Garamond', serif;\r\n  font-size: 20px;\r\n  font-weight: 400;\r\n  font-style: italic;\r\n  color: #666;\r\n  margin-bottom: 15px;\r\n}\r\n\r\n.divider {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin: 40px 0;\r\n}\r\n\r\n.divider-line {\r\n  height: 1px;\r\n  width: 120px;\r\n  background: linear-gradient(90deg, transparent, #d4af37, transparent);\r\n  opacity: 0.5;\r\n}\r\n\r\n.divider-icon {\r\n  width: 40px;\r\n  height: 40px;\r\n  margin: 0 20px;\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20,0 C25,10 30,15 40,20 C30,25 25,30 20,40 C15,30 10,25 0,20 C10,15 15,10 20,0 Z' fill='%23d4af37' fill-opacity='0.2'/%3E%3Ccircle cx='20' cy='20' r='5' fill='%23d4af37' fill-opacity='0.3'/%3E%3C/svg%3E\");\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n}\r\n\r\n.wedding-details {\r\n  display: flex;\r\n  justify-content: space-around;\r\n  margin: 50px 0;\r\n  position: relative;\r\n}\r\n\r\n.wedding-details::before {\r\n  content: '';\r\n  position: absolute;\r\n  top: -20px;\r\n  left: 50%;\r\n  transform: translateX(-50%);\r\n  width: 100%;\r\n  height: calc(100% + 40px);\r\n  border: 1px solid rgba(212, 175, 55, 0.2);\r\n  border-radius: 2px;\r\n  z-index: -1;\r\n}\r\n\r\n.detail-item {\r\n  flex: 1;\r\n  padding: 0 30px;\r\n  position: relative;\r\n  transition: transform 0.3s ease;\r\n}\r\n\r\n.detail-item:first-child::after {\r\n  content: '';\r\n  position: absolute;\r\n  right: 0;\r\n  top: 20%;\r\n  height: 60%;\r\n  width: 1px;\r\n  background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.5), transparent);\r\n}\r\n\r\n.detail-icon {\r\n  width: 50px;\r\n  height: 50px;\r\n  margin: 0 auto 20px;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  opacity: 0.8;\r\n}\r\n\r\n.time-icon {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Ccircle cx='25' cy='25' r='23' fill='none' stroke='%23d4af37' stroke-width='1.5' opacity='0.8'/%3E%3Ccircle cx='25' cy='25' r='3' fill='%23d4af37' opacity='0.8'/%3E%3Cline x1='25' y1='25' x2='25' y2='10' stroke='%23d4af37' stroke-width='1.5' opacity='0.8'/%3E%3Cline x1='25' y1='25' x2='35' y2='30' stroke='%23d4af37' stroke-width='1.5' opacity='0.8'/%3E%3C/svg%3E\");\r\n}\r\n\r\n.location-icon {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath d='M25,2 C14,2 5,11 5,22 C5,35 25,48 25,48 C25,48 45,35 45,22 C45,11 36,2 25,2 Z' fill='none' stroke='%23d4af37' stroke-width='1.5' opacity='0.8'/%3E%3Ccircle cx='25' cy='22' r='8' fill='none' stroke='%23d4af37' stroke-width='1.5' opacity='0.8'/%3E%3C/svg%3E\");\r\n}\r\n\r\n.detail-item h3 {\r\n  font-family: 'Montserrat', sans-serif;\r\n  font-size: 12px;\r\n  font-weight: 600;\r\n  letter-spacing: 3px;\r\n  margin-bottom: 15px;\r\n  color: #d4af37;\r\n}\r\n\r\n.detail-item p {\r\n  font-family: 'Cormorant Garamond', serif;\r\n  font-size: 18px;\r\n  line-height: 1.4;\r\n  color: #555;\r\n}\r\n\r\n.venue {\r\n  font-weight: 600;\r\n  margin-bottom: 5px;\r\n  font-size: 20px;\r\n}\r\n\r\n.rsvp-button {\r\n  background-color: transparent;\r\n  color: #d4af37;\r\n  border: 1px solid #d4af37;\r\n  padding: 12px 40px;\r\n  font-family: 'Montserrat', sans-serif;\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  letter-spacing: 2px;\r\n  border-radius: 2px;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease;\r\n  position: relative;\r\n  overflow: hidden;\r\n  margin-top: 30px;\r\n  z-index: 1;\r\n}\r\n\r\n.rsvp-button::before {\r\n  content: '';\r\n  position: absolute;\r\n  top: 0;\r\n  left: -100%;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: #d4af37;\r\n  transition: all 0.3s ease;\r\n  z-index: -1;\r\n}\r\n\r\n.rsvp-button:hover {\r\n  color: white;\r\n}\r\n\r\n.rsvp-button:hover::before {\r\n  left: 0;\r\n}\r\n\r\n/* Footer */\r\nfooter {\r\n  margin-top: 50px;\r\n  position: relative;\r\n}\r\n\r\n.footer-ornament {\r\n  width: 100px;\r\n  height: 40px;\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'%3E%3Cpath d='M50,40 C60,30 70,20 100,20 L100,19 C70,19 60,9 50,0 C40,9 30,19 0,19 L0,20 C30,20 40,30 50,40 Z' fill='%23d4af37' fill-opacity='0.2'/%3E%3C/svg%3E\");\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  margin: 0 auto 20px;\r\n}\r\n\r\n.footer-text {\r\n  font-family: 'Cormorant Garamond', serif;\r\n  font-style: italic;\r\n  font-size: 18px;\r\n  color: #666;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n/* Responsive */\r\n@media (max-width: 768px) {\r\n  .wedding-invitation {\r\n    padding: 60px 30px;\r\n  }\r\n  \r\n  .groom-name, .bride-name {\r\n    font-size: 36px;\r\n  }\r\n  \r\n  .ampersand {\r\n    font-size: 50px;\r\n  }\r\n  \r\n  .wedding-details {\r\n    flex-direction: column;\r\n  }\r\n  \r\n  .detail-item {\r\n    margin-bottom: 40px;\r\n  }\r\n  \r\n  .detail-item:first-child::after {\r\n    display: none;\r\n  }\r\n  \r\n  .wedding-details::before {\r\n    width: 90%;\r\n  }\r\n}\r\n\r\n@media (max-width: 480px) {\r\n  .wedding-invitation {\r\n    padding: 40px 20px;\r\n  }\r\n  \r\n  .groom-name, .bride-name {\r\n    font-size: 30px;\r\n  }\r\n  \r\n  .ampersand {\r\n    font-size: 40px;\r\n    margin: 5px 0;\r\n  }\r\n  \r\n  .pre-names {\r\n    font-size: 10px;\r\n  }\r\n  \r\n  .floral-corner {\r\n    width: 100px;\r\n    height: 100px;\r\n  }\r\n}",
+  "js": "document.addEventListener('DOMContentLoaded', function() {\r\n  // Hiệu ứng nút RSVP\r\n  const rsvpButton = document.getElementById('rsvp-btn');\r\n  \r\n  rsvpButton.addEventListener('click', function() {\r\n    alert('Cảm ơn bạn đã xác nhận tham dự!');\r\n    // Đây là nơi bạn có thể thêm mã để gửi form xác nhận tham dự\r\n  });\r\n  \r\n  // Hiệu ứng khi cuộn trang\r\n  function fadeInElements() {\r\n    const elements = document.querySelectorAll('.wedding-invitation > *, .names-container > *');\r\n    elements.forEach((element, index) => {\r\n      // Thêm class ban đầu cho animation\r\n      element.style.opacity = '0';\r\n      element.style.transform = 'translateY(20px)';\r\n      \r\n      // Thêm transition\r\n      element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';\r\n      \r\n      // Thực hiện animation\r\n      setTimeout(() => {\r\n        element.style.opacity = '1';\r\n        element.style.transform = 'translateY(0)';\r\n      }, 100 * index);\r\n    });\r\n  }\r\n  \r\n  // Thêm hiệu ứng fade-in khi trang tải xong\r\n  window.addEventListener('load', function() {\r\n    fadeInElements();\r\n  });\r\n  \r\n  // Thêm hiệu ứng hover cho các phần tử\r\n  const detailItems = document.querySelectorAll('.detail-item');\r\n  detailItems.forEach(item => {\r\n    item.addEventListener('mouseenter', function() {\r\n      this.style.transform = 'translateY(-5px)';\r\n    });\r\n    \r\n    item.addEventListener('mouseleave', function() {\r\n      this.style.transform = 'translateY(0)';\r\n    });\r\n  });\r\n  \r\n  // Thêm hiệu ứng lấp lánh cho các yếu tố trang trí\r\n  function addSparkles() {\r\n    const invitation = document.querySelector('.wedding-invitation');\r\n    \r\n    for (let i = 0; i < 20; i++) {\r\n      const sparkle = document.createElement('div');\r\n      sparkle.className = 'sparkle';\r\n      \r\n      // Vị trí ngẫu nhiên\r\n      const left = Math.random() * 100;\r\n      const top = Math.random() * 100;\r\n      \r\n      // Kích thước ngẫu nhiên\r\n      const size = Math.random() * 5 + 2;\r\n      \r\n      // Thời gian animation ngẫu nhiên\r\n      const duration = Math.random() * 3 + 2;\r\n      \r\n      sparkle.style.cssText = `\r\n        position: absolute;\r\n        left: ${left}%;\r\n        top: ${top}%;\r\n        width: ${size}px;\r\n        height: ${size}px;\r\n        background-color: rgba(212, 175, 55, 0.7);\r\n        border-radius: 50%;\r\n        opacity: 0;\r\n        animation: sparkle ${duration}s infinite;\r\n      `;\r\n      \r\n      invitation.appendChild(sparkle);\r\n    }\r\n  }\r\n  \r\n  // Thêm keyframes cho animation lấp lánh\r\n  const style = document.createElement('style');\r\n  style.textContent = `\r\n    @keyframes sparkle {\r\n      0% { transform: scale(0); opacity: 0; }\r\n      50% { transform: scale(1); opacity: 0.8; }\r\n      100% { transform: scale(0); opacity: 0; }\r\n    }\r\n  `;\r\n  document.head.appendChild(style);\r\n  \r\n  // Thêm hiệu ứng lấp lánh\r\n  addSparkles();\r\n});",
+  "dynamicFields": [
+    {
+      "id": "field_1",
+      "name": "tên_cô_dâu",
+      "type": "text",
+      "defaultValue": "Nguyễn Thị Hoa",
+      "description": "Tên của cô dâu",
+      "_id": {
+        "$oid": "680c8149ebbef3488abdb470"
+      }
+    },
+    {
+      "id": "field_2",
+      "name": "tên_chú_rể",
+      "type": "text",
+      "defaultValue": "Trần Văn Minh",
+      "description": "Tên của chú rể",
+      "_id": {
+        "$oid": "680c8149ebbef3488abdb471"
+      }
+    },
+    {
+      "id": "field_3",
+      "name": "ngày_cưới",
+      "type": "date",
+      "defaultValue": "12/05/2025",
+      "description": "Ngày tổ chức lễ cưới",
+      "_id": {
+        "$oid": "680c8149ebbef3488abdb472"
+      }
+    },
+    {
+      "id": "field_4",
+      "name": "giờ_cưới",
+      "type": "text",
+      "defaultValue": "10:00 AM",
+      "description": "Giờ tổ chức lễ cưới",
+      "_id": {
+        "$oid": "680c8149ebbef3488abdb473"
+      }
+    },
+    {
+      "id": "field_5",
+      "name": "địa_điểm_cưới",
+      "type": "location",
+      "defaultValue": "Trung tâm tiệc cưới XYZ",
+      "description": "Tên địa điểm tổ chức",
+      "_id": {
+        "$oid": "680c8149ebbef3488abdb474"
+      }
+    },
+    {
+      "id": "field_6",
+      "name": "địa_chỉ_cưới",
+      "type": "text",
+      "defaultValue": "123 Đường ABC, Quận DEF",
+      "description": "Địa chỉ chi tiết",
+      "_id": {
+        "$oid": "680c8149ebbef3488abdb475"
+      }
+    },
+    {
+      "id": "field_7",
+      "name": "màu_chủ_đạo",
+      "type": "color",
+      "defaultValue": "#db2777",
+      "description": "Màu sắc chủ đạo của thiệp",
+      "_id": {
+        "$oid": "680c8149ebbef3488abdb476"
+      }
+    },
+    {
+      "id": "field_8",
+      "name": "màu_nền",
+      "type": "color",
+      "defaultValue": "#fdf2f8",
+      "description": "Màu nền của thiệp",
+      "_id": {
+        "$oid": "680c8149ebbef3488abdb477"
+      }
+    }
+  ],
+  "thumbnail": "/templates/thumbnails/1746511444239-602386724.png",
+  "rating": 0,
+  "reviewCount": 0,
+  "createdAt": {
+    "$date": "2025-04-26T06:46:33.994Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-06T06:04:04.246Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "680c9342f422e522cea56889"
+  },
+  "name": "Mẫu thiệp 3",
+  "category": "elegant",
+  "price": "paid",
+  "status": "published",
+  "html": "<div class=\"wedding-invitation\">\r\n  <div class=\"invitation-border\">\r\n    <div class=\"invitation-content\">\r\n      <div class=\"header\">\r\n        <div class=\"ornament top-ornament\"></div>\r\n        <h1 class=\"title\">Thiệp mời</h1>\r\n        <h2 class=\"subtitle\">Wedding Invitation</h2>\r\n      </div>\r\n      \r\n      <div class=\"couple-section\">\r\n        <div class=\"couple-info\">\r\n          <div class=\"bride-info\">\r\n            <h3 class=\"bride-name\">{{tên_cô_dâu}}</h3>\r\n            <p class=\"bride-position\">{{danh_xưng_cô_dâu}}</p>\r\n            <p class=\"bride-parents\">Con ông {{tên_cha_cô_dâu}}</p>\r\n            <p class=\"bride-parents\">và bà {{tên_mẹ_cô_dâu}}</p>\r\n            <p class=\"bride-address\">{{địa_chỉ_nhà_gái}}</p>\r\n          </div>\r\n          \r\n          <div class=\"couple-symbol\">&</div>\r\n          \r\n          <div class=\"groom-info\">\r\n            <h3 class=\"groom-name\">{{tên_chú_rể}}</h3>\r\n            <p class=\"groom-position\">{{danh_xưng_chú_rể}}</p>\r\n            <p class=\"groom-parents\">Con ông {{tên_cha_chú_rể}}</p>\r\n            <p class=\"groom-parents\">và bà {{tên_mẹ_chú_rể}}</p>\r\n            <p class=\"groom-address\">{{địa_chỉ_nhà_trai}}</p>\r\n          </div>\r\n        </div>\r\n        \r\n        <div class=\"couple-image\">\r\n          <img src=\"{{ảnh_1}}\" alt=\"Ảnh cưới 1\" />\r\n          <img src=\"{{ảnh_2}}\" alt=\"Ảnh cưới 2\" />\r\n          <img src=\"{{ảnh_3}}\" alt=\"Ảnh cưới 2\" />\r\n        </div>\r\n      </div>\r\n      \r\n      <div class=\"date-section\">\r\n        <div class=\"ornament date-ornament-left\"></div>\r\n        <div class=\"date-info\">\r\n          <p class=\"solar-date\">{{ngày_cưới_dương_lịch}}</p>\r\n          <p class=\"lunar-date\">({{ngày_cưới_âm_lịch}})</p>\r\n        </div>\r\n        <div class=\"ornament date-ornament-right\"></div>\r\n      </div>\r\n      \r\n      <div class=\"venue-section\">\r\n        <h3 class=\"venue-title\">Trân trọng kính mời</h3>\r\n        <p class=\"venue-name\">{{địa_điểm_cưới}}</p>\r\n        <p class=\"venue-address\">{{địa_chỉ_cưới}}</p>\r\n        <div class=\"time-info\">\r\n          <div class=\"time-item\">\r\n            <span class=\"time-label\">Đón khách:</span>\r\n            <span class=\"time-value\">{{giờ_đón_khách}}</span>\r\n          </div>\r\n          <div class=\"time-item\">\r\n            <span class=\"time-label\">Nhập tiệc:</span>\r\n            <span class=\"time-value\">{{giờ_nhập_tiệc}}</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class=\"footer\">\r\n        <p class=\"thank-you\">Sự hiện diện của quý khách là niềm vinh dự của chúng tôi</p>\r\n        <div class=\"ornament bottom-ornament\"></div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>",
+  "css": "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\n@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');\r\n\r\nbody {\r\n  font-family: 'Cormorant Garamond', serif;\r\n  background-color: {{màu_nền}};\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  min-height: 100vh;\r\n  padding: 20px;\r\n  color: #333;\r\n}\r\n\r\n.wedding-invitation {\r\n  max-width: 800px;\r\n  width: 100%;\r\n  margin: 0 auto;\r\n}\r\n\r\n.invitation-border {\r\n  border: 1px solid {{màu_chủ_đạo}};\r\n  padding: 15px;\r\n  background-color: white;\r\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.invitation-content {\r\n  border: 1px solid {{màu_chủ_đạo}};\r\n  padding: 40px;\r\n  text-align: center;\r\n  position: relative;\r\n}\r\n\r\n/* Header Styles */\r\n.header {\r\n  margin-bottom: 30px;\r\n  position: relative;\r\n}\r\n\r\n.title {\r\n  font-family: 'Great Vibes', cursive;\r\n  font-size: 48px;\r\n  color: {{màu_chủ_đạo}};\r\n  margin-bottom: 5px;\r\n  font-weight: 400;\r\n}\r\n\r\n.subtitle {\r\n  font-family: 'Montserrat', sans-serif;\r\n  font-size: 14px;\r\n  color: {{màu_phụ}};\r\n  text-transform: uppercase;\r\n  letter-spacing: 3px;\r\n  font-weight: 300;\r\n}\r\n\r\n/* Couple Section Styles */\r\n.couple-section {\r\n  margin-bottom: 40px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\n.couple-info {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  margin-bottom: 30px;\r\n  width: 100%;\r\n}\r\n\r\n.bride-info, .groom-info {\r\n  flex: 1;\r\n  padding: 0 20px;\r\n}\r\n\r\n.couple-symbol {\r\n  font-family: 'Great Vibes', cursive;\r\n  font-size: 60px;\r\n  color: {{màu_chủ_đạo}};\r\n  margin: 0 20px;\r\n}\r\n\r\n.bride-name, .groom-name {\r\n  font-size: 28px;\r\n  color: {{màu_chủ_đạo}};\r\n  margin-bottom: 5px;\r\n  font-weight: 600;\r\n}\r\n\r\n.bride-position, .groom-position {\r\n  font-style: italic;\r\n  margin-bottom: 15px;\r\n  color: {{màu_phụ}};\r\n}\r\n\r\n.bride-parents, .groom-parents, .bride-address, .groom-address {\r\n  font-size: 16px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.couple-image {\r\n  display: flex;\r\n  gap: 20px;\r\n}\r\n\r\n.couple-image img {\r\n  width: 100%;\r\n  height: 100%;\r\n  max-width: 300px;\r\n  max-height: 300px;\r\n  object-fit: cover;\r\n  border-radius: 50%;\r\n  overflow: hidden;\r\n}\r\n\r\n/* Date Section Styles */\r\n.date-section {\r\n  margin-bottom: 40px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.date-info {\r\n  margin: 0 20px;\r\n}\r\n\r\n.solar-date {\r\n  font-size: 24px;\r\n  font-weight: 600;\r\n  color: {{màu_chủ_đạo}};\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.lunar-date {\r\n  font-style: italic;\r\n  color: {{màu_phụ}};\r\n}\r\n\r\n/* Venue Section Styles */\r\n.venue-section {\r\n  margin-bottom: 40px;\r\n}\r\n\r\n.venue-title {\r\n  font-size: 24px;\r\n  color: {{màu_chủ_đạo}};\r\n  margin-bottom: 15px;\r\n  font-weight: 600;\r\n}\r\n\r\n.venue-name {\r\n  font-size: 20px;\r\n  margin-bottom: 5px;\r\n  font-weight: 500;\r\n}\r\n\r\n.venue-address {\r\n  margin-bottom: 20px;\r\n}\r\n\r\n.time-info {\r\n  display: flex;\r\n  justify-content: center;\r\n  gap: 30px;\r\n  margin-top: 20px;\r\n}\r\n\r\n.time-item {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\n.time-label {\r\n  font-size: 16px;\r\n  color: {{màu_phụ}};\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.time-value {\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n  color: {{màu_chủ_đạo}};\r\n}\r\n\r\n/* Footer Styles */\r\n.footer {\r\n  position: relative;\r\n}\r\n\r\n.thank-you {\r\n  font-style: italic;\r\n  color: {{màu_phụ}};\r\n  margin-bottom: 20px;\r\n  font-size: 18px;\r\n}\r\n\r\n/* Ornaments */\r\n.ornament {\r\n  height: 20px;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  background-size: contain;\r\n  margin: 15px 0;\r\n}\r\n\r\n.top-ornament {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,5 H40 M60,5 H100 M50,0 L50,10' stroke='%23d4af37' strokeWidth='0.5'/%3E%3Ccircle cx='50' cy='5' r='3' fill='none' stroke='%23d4af37' strokeWidth='0.5'/%3E%3C/svg%3E\");\r\n}\r\n\r\n.date-ornament-left, .date-ornament-right {\r\n  width: 100px;\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,5 H100' stroke='%23d4af37' strokeWidth='0.5'/%3E%3C/svg%3E\");\r\n}\r\n\r\n.bottom-ornament {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,5 H40 M60,5 H100 M50,0 L50,10' stroke='%23d4af37' strokeWidth='0.5'/%3E%3Ccircle cx='50' cy='5' r='3' fill='none' stroke='%23d4af37' strokeWidth='0.5'/%3E%3C/svg%3E\");\r\n}\r\n\r\n/* Responsive Styles */\r\n@media (max-width: 768px) {\r\n  .invitation-content {\r\n    padding: 20px;\r\n  }\r\n  \r\n  .title {\r\n    font-size: 36px;\r\n  }\r\n  \r\n  .couple-info {\r\n    flex-direction: column;\r\n    gap: 20px;\r\n  }\r\n  \r\n  .couple-symbol {\r\n    margin: 10px 0;\r\n  }\r\n  \r\n  .time-info {\r\n    flex-direction: column;\r\n    gap: 10px;\r\n  }\r\n}",
+  "js": "document.addEventListener('DOMContentLoaded', function() {\r\n  // Thay thế màu chủ đạo trong các ornament SVG\r\n  const mainColor = getComputedStyle(document.documentElement).getPropertyValue('--main-color') || '{{màu_chủ_đạo}}';\r\n  const ornaments = document.querySelectorAll('.ornament');\r\n  \r\n  ornaments.forEach(ornament => {\r\n    const style = getComputedStyle(ornament);\r\n    const bgImage = style.backgroundImage;\r\n    \r\n    if (bgImage.includes('svg')) {\r\n      // Thay thế màu trong SVG\r\n      const newBgImage = bgImage.replace(/%23d4af37/g, encodeURIComponent(mainColor.trim()));\r\n      ornament.style.backgroundImage = newBgImage;\r\n    }\r\n  });\r\n  \r\n  // Hiệu ứng hiển thị từng phần của thiệp\r\n  const sections = [\r\n    document.querySelector('.header'),\r\n    document.querySelector('.couple-section'),\r\n    document.querySelector('.date-section'),\r\n    document.querySelector('.venue-section'),\r\n    document.querySelector('.footer')\r\n  ];\r\n  \r\n  sections.forEach((section, index) => {\r\n    if (section) {\r\n      setTimeout(() => {\r\n        section.style.opacity = '1';\r\n      }, 300 * index);\r\n    }\r\n  });\r\n});",
+  "dynamicFields": [
+    {
+      "id": "field_1745653179155",
+      "name": "tên_cô_dâu",
+      "type": "text",
+      "defaultValue": "Nguyễn Thị Hoa",
+      "description": "Tên của cô dâu",
+      "_id": {
+        "$oid": "680c9342f422e522cea5688a"
+      }
+    },
+    {
+      "id": "field_1745653188641",
+      "name": "danh_xưng_cô_dâu",
+      "type": "text",
+      "defaultValue": "Thứ nữ",
+      "description": "Danh xưng cô dâu",
+      "_id": {
+        "$oid": "680c9342f422e522cea5688b"
+      }
+    },
+    {
+      "id": "field_1745653202818",
+      "name": "tên_cha_cô_dâu",
+      "type": "text",
+      "defaultValue": "Nguyễn Văn Nam",
+      "description": "Tên cha cô dâu",
+      "_id": {
+        "$oid": "680c9342f422e522cea5688c"
+      }
+    },
+    {
+      "id": "field_1745653365516",
+      "name": "tên_mẹ_cô_dâu",
+      "type": "text",
+      "defaultValue": "Hồ Thị Kim",
+      "description": "Tên mẹ cô dâu",
+      "_id": {
+        "$oid": "680c9342f422e522cea5688d"
+      }
+    },
+    {
+      "id": "field_1745653398401",
+      "name": "địa_chỉ_nhà_gái",
+      "type": "text",
+      "defaultValue": "02, Điện Biên Phủ, TP. Tam Kỳ, Tỉnh Quảng Nam",
+      "description": "Địa chỉ nhà gái",
+      "_id": {
+        "$oid": "680c9342f422e522cea5688e"
+      }
+    },
+    {
+      "id": "field_1745653432018",
+      "name": "tên_chú_rể",
+      "type": "text",
+      "defaultValue": "Trần Văn Bình",
+      "description": "Tên chú rể",
+      "_id": {
+        "$oid": "680c9342f422e522cea5688f"
+      }
+    },
+    {
+      "id": "field_1745653451616",
+      "name": "danh_xưng_chú_rể",
+      "type": "text",
+      "defaultValue": "Trưởng nam",
+      "description": "Danh xưng chú rể",
+      "_id": {
+        "$oid": "680c9342f422e522cea56890"
+      }
+    },
+    {
+      "id": "field_1745653505523",
+      "name": "tên_cha_chú_rể",
+      "type": "text",
+      "defaultValue": "Trần Văn Lợi",
+      "description": "Tên cha chú rể",
+      "_id": {
+        "$oid": "680c9342f422e522cea56891"
+      }
+    },
+    {
+      "id": "field_1745653537466",
+      "name": "tên_mẹ_chú_rể",
+      "type": "text",
+      "defaultValue": "Đoàn Kim Loan",
+      "description": "Tên mẹ chú rể",
+      "_id": {
+        "$oid": "680c9342f422e522cea56892"
+      }
+    },
+    {
+      "id": "field_1745653560884",
+      "name": "địa_chỉ_nhà_trai",
+      "type": "text",
+      "defaultValue": "77 Lê Lợi, TP. Tam Kỳ, Tỉnh Quảng Nam",
+      "description": "Địa chỉ nhà trai",
+      "_id": {
+        "$oid": "680c9342f422e522cea56893"
+      }
+    },
+    {
+      "id": "field_1745653600032",
+      "name": "ảnh_1",
+      "type": "image",
+      "defaultValue": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00318-scaled.jpg",
+      "description": "Ảnh 1",
+      "_id": {
+        "$oid": "680c9342f422e522cea56894"
+      }
+    },
+    {
+      "id": "field_1745653631214",
+      "name": "ảnh_2",
+      "type": "image",
+      "defaultValue": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00622-scaled.jpg",
+      "description": "Ảnh 2",
+      "_id": {
+        "$oid": "680c9342f422e522cea56895"
+      }
+    },
+    {
+      "id": "field_1745654113446",
+      "name": "ảnh_3",
+      "type": "image",
+      "defaultValue": "https://tonywedding.vn/wp-content/uploads/2023/03/DSC00840-scaled.jpg",
+      "description": "Ảnh 3",
+      "_id": {
+        "$oid": "680c9342f422e522cea56896"
+      }
+    },
+    {
+      "id": "field_1745654153694",
+      "name": "ngày_cưới_dương_lịch",
+      "type": "date",
+      "defaultValue": "12/05/2025",
+      "description": "Ngày cưới dương lịch",
+      "_id": {
+        "$oid": "680c9342f422e522cea56897"
+      }
+    },
+    {
+      "id": "field_1745654203093",
+      "name": "ngày_cưới_âm_lịch",
+      "type": "text",
+      "defaultValue": "23 tháng 3 năm Ấy Tỵ",
+      "description": "Ngày cưới âm lịch",
+      "_id": {
+        "$oid": "680c9342f422e522cea56898"
+      }
+    },
+    {
+      "id": "field_1745654272561",
+      "name": "giờ_đón_khách",
+      "type": "text",
+      "defaultValue": "10:00 AM",
+      "description": "Giờ đón khách",
+      "_id": {
+        "$oid": "680c9342f422e522cea56899"
+      }
+    },
+    {
+      "id": "field_1745654310359",
+      "name": "giờ_nhập_tiệc",
+      "type": "text",
+      "defaultValue": "11:30 AM",
+      "description": "Giờ nhập tiệc",
+      "_id": {
+        "$oid": "680c9342f422e522cea5689a"
+      }
+    },
+    {
+      "id": "field_1745654331910",
+      "name": "địa_điểm_cưới",
+      "type": "text",
+      "defaultValue": "Trung tâm tiệc cưới White Palace",
+      "description": "Địa điểm cưới",
+      "_id": {
+        "$oid": "680c9342f422e522cea5689b"
+      }
+    },
+    {
+      "id": "field_1745654374108",
+      "name": "địa_chỉ_cưới",
+      "type": "text",
+      "defaultValue": "194 Hoàng Văn Thụ, Phường 9, Quận Phú Nhuận, TP.HCM",
+      "description": "Địa chỉ cưới",
+      "_id": {
+        "$oid": "680c9342f422e522cea5689c"
+      }
+    },
+    {
+      "id": "field_1745654395746",
+      "name": "màu_chủ_đạo",
+      "type": "color",
+      "defaultValue": "#d4af37",
+      "description": "Màu chủ đạo",
+      "_id": {
+        "$oid": "680c9342f422e522cea5689d"
+      }
+    },
+    {
+      "id": "field_1745654424742",
+      "name": "màu_nền",
+      "type": "color",
+      "defaultValue": "#fff9f0",
+      "description": "Màu nền",
+      "_id": {
+        "$oid": "680c9342f422e522cea5689e"
+      }
+    },
+    {
+      "id": "field_1745654449439",
+      "name": "màu_phụ",
+      "type": "color",
+      "defaultValue": "#8b4513",
+      "description": "Màu phụ",
+      "_id": {
+        "$oid": "680c9342f422e522cea5689f"
+      }
+    }
+  ],
+  "thumbnail": "/templates/thumbnails/1746511339296-211180880.png",
+  "rating": 0,
+  "reviewCount": 0,
+  "createdAt": {
+    "$date": "2025-04-26T08:03:14.281Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-06T06:19:39.485Z"
+  },
+  "__v": 0,
+  "comparePrice": 2000000,
+  "priceAmount": 1500000
+},
+{
+  "_id": {
+    "$oid": "68193082ff27b7470539f429"
+  },
+  "name": "Thiệp màu đỏ hiện đại",
+  "category": "modern",
+  "price": "paid",
+  "status": "published",
+  "thumbnail": "/templates/thumbnails/1746481282578-486172793.png",
+  "html": "<section id=\"cover\" class=\"section\">\r\n    <div class=\"section-inner\">\r\n      <div class=\"cover-background\">\r\n        <div class=\"cover-content\">\r\n          <h1 class=\"main-title\">{{tiêu_đề_thiệp}}</h1>\r\n          \r\n          <div class=\"couple-names\">\r\n            <span class=\"bride-name\">{{tên_cô_dâu}}</span>\r\n            <span class=\"ampersand\">&</span>\r\n            <span class=\"groom-name\">{{tên_chú_rể}}</span>\r\n          </div>\r\n          \r\n          <div class=\"couple-photo\">\r\n            <img src=\"{{ảnh_cô_dâu_chú_rể_1}}\" alt=\"Ảnh cưới\" class=\"cover-photo\">\r\n          </div>\r\n          \r\n          <div class=\"wedding-date\">\r\n            <div class=\"date-line\">\r\n              <span class=\"date-label\">Ngày:</span>\r\n              <span class=\"date-value\">{{ngày_cưới_dương_lịch}}</span>\r\n            </div>\r\n            <div class=\"date-line\">\r\n              <span class=\"date-label\">Âm lịch:</span>\r\n              <span class=\"date-value\">{{ngày_cưới_âm_lịch}}</span>\r\n            </div>\r\n          </div>\r\n          \r\n          <div class=\"wedding-time\">\r\n            <div class=\"time-line\">\r\n              <span class=\"time-label\">Đón khách:</span>\r\n              <span class=\"time-value\">{{giờ_đón_khách}}</span>\r\n            </div>\r\n            <div class=\"time-line\">\r\n              <span class=\"time-label\">Nhập tiệc:</span>\r\n              <span class=\"time-value\">{{giờ_nhập_tiệc}}</span>\r\n            </div>\r\n          </div>\r\n          \r\n          <div class=\"page-indicator\">\r\n            <span class=\"indicator active\"></span>\r\n            <span class=\"indicator\"></span>\r\n            <span class=\"indicator\"></span>\r\n            <span class=\"indicator\"></span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </section>\r\n\r\n  <!-- Phần 2: Giới thiệu gia đình -->\r\n  <section id=\"family\" class=\"section\">\r\n    <div class=\"section-inner\">\r\n      <div class=\"family-background\">\r\n        <div class=\"family-content\">\r\n          <h2 class=\"section-title\">Gia Đình Hai Bên</h2>\r\n          \r\n          <div class=\"families-container\">\r\n            <div class=\"family-side groom-family\">\r\n              <h3 class=\"family-side-title\">Nhà Trai</h3>\r\n              <div class=\"family-info\">\r\n                <div class=\"family-info-line\">\r\n                  <span class=\"family-label\">Cha:</span>\r\n                  <span class=\"family-value\">{{tên_cha_chú_rể}}</span>\r\n                </div>\r\n                <div class=\"family-info-line\">\r\n                  <span class=\"family-label\">Mẹ:</span>\r\n                  <span class=\"family-value\">{{tên_mẹ_chú_rể}}</span>\r\n                </div>\r\n                <div class=\"family-info-line\">\r\n                  <span class=\"family-label\">Địa chỉ:</span>\r\n                  <span class=\"family-value\">{{địa_chỉ_nhà_trai}}</span>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            \r\n            <div class=\"family-divider\">\r\n              <div class=\"divider-line\"></div>\r\n              <div class=\"divider-heart\"></div>\r\n              <div class=\"divider-line\"></div>\r\n            </div>\r\n            \r\n            <div class=\"family-side bride-family\">\r\n              <h3 class=\"family-side-title\">Nhà Gái</h3>\r\n              <div class=\"family-info\">\r\n                <div class=\"family-info-line\">\r\n                  <span class=\"family-label\">Cha:</span>\r\n                  <span class=\"family-value\">{{tên_cha_cô_dâu}}</span>\r\n                </div>\r\n                <div class=\"family-info-line\">\r\n                  <span class=\"family-label\">Mẹ:</span>\r\n                  <span class=\"family-value\">{{tên_mẹ_cô_dâu}}</span>\r\n                </div>\r\n                <div class=\"family-info-line\">\r\n                  <span class=\"family-label\">Địa chỉ:</span>\r\n                  <span class=\"family-value\">{{địa_chỉ_nhà_gái}}</span>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          \r\n          <div class=\"love-quote\">\r\n            <p>{{quote_dòng_1}}</p>\r\n            <p>{{quote_dòng_2}}</p>\r\n          </div>\r\n          \r\n          <div class=\"couple-photo\">\r\n            <img src=\"{{ảnh_cô_dâu_chú_rể_2}}\" alt=\"Ảnh cưới\" class=\"family-photo\">\r\n          </div>\r\n          \r\n          <div class=\"page-indicator\">\r\n            <span class=\"indicator\"></span>\r\n            <span class=\"indicator active\"></span>\r\n            <span class=\"indicator\"></span>\r\n            <span class=\"indicator\"></span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </section>\r\n\r\n  <!-- Phần 4: Thời gian và địa điểm -->\r\n  <section id=\"venue\" class=\"section\">\r\n    <div class=\"section-inner\">\r\n      <div class=\"venue-background\">\r\n        <div class=\"venue-content\">\r\n          <h2 class=\"section-title\">Thời Gian & Địa Điểm</h2>\r\n          \r\n          <div class=\"venue-details\">\r\n            <div class=\"venue-info\">\r\n              <div class=\"venue-time\">\r\n                <div class=\"venue-icon reception-icon\"></div>\r\n                <div class=\"venue-time-details\">\r\n                  <h4 class=\"venue-time-title\">Đón Khách</h4>\r\n                  <p class=\"venue-time-value\">{{giờ_đón_khách}}</p>\r\n                </div>\r\n              </div>\r\n              \r\n              <div class=\"venue-time\">\r\n                <div class=\"venue-icon dinner-icon\"></div>\r\n                <div class=\"venue-time-details\">\r\n                  <h4 class=\"venue-time-title\">Nhập Tiệc</h4>\r\n                  <p class=\"venue-time-value\">{{giờ_nhập_tiệc}}</p>\r\n                </div>\r\n              </div>\r\n              \r\n              <div class=\"venue-location\">\r\n                <div class=\"venue-icon location-icon\"></div>\r\n                <div class=\"venue-location-details\">\r\n                  <h4 class=\"venue-location-title\">Địa Điểm</h4>\r\n                  <p class=\"venue-location-name\">{{tên_địa_điểm}}</p>\r\n                  <p class=\"venue-location-address\">{{địa_chỉ_địa_điểm}}</p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            \r\n            <div class=\"venue-map\">\r\n              <div class=\"map-container\">\r\n                <img src=\"{{ảnh_bản_đồ}}\" alt=\"Bản đồ địa điểm\" class=\"map-image\">\r\n                <div class=\"map-overlay\">\r\n                  <a href=\"{{link_bản_đồ}}\" class=\"map-button\" target=\"_blank\">Xem Bản Đồ</a>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          \r\n          <div class=\"couple-photo\">\r\n            <img src=\"{{ảnh_cô_dâu_chú_rể_3}}\" alt=\"Ảnh cưới\" class=\"venue-photo\">\r\n          </div>\r\n          \r\n          <div class=\"page-indicator\">\r\n            <span class=\"indicator\"></span>\r\n            <span class=\"indicator\"></span>\r\n            <span class=\"indicator active\"></span>\r\n            <span class=\"indicator\"></span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </section>\r\n\r\n  <!-- Phần 5: Lời cảm ơn -->\r\n  <section id=\"thanks\" class=\"section\">\r\n    <div class=\"section-inner\">\r\n      <div class=\"thanks-background\">\r\n        <div class=\"thanks-content\">\r\n          <h2 class=\"section-title\">Lời Cảm Ơn</h2>\r\n          \r\n          <div class=\"thanks-message\">\r\n            <p>{{lời_cảm_ơn_1}}</p>\r\n            <p>{{lời_cảm_ơn_2}}</p>\r\n          </div>\r\n          \r\n          <div class=\"couple-photo\">\r\n            <img src=\"{{ảnh_cô_dâu_chú_rể_4}}\" alt=\"Ảnh cưới\" class=\"thanks-photo\">\r\n          </div>\r\n          \r\n          <div class=\"rsvp-section\">\r\n            <h3 class=\"rsvp-title\">Xác Nhận Tham Dự</h3>\r\n            <div class=\"rsvp-options\">\r\n              <div class=\"rsvp-qr\">\r\n                <img src=\"{{mã_qr}}\" alt=\"QR Code\" class=\"qr-code\">\r\n                <p class=\"qr-text\">Quét mã QR để xác nhận</p>\r\n              </div>\r\n              <div class=\"rsvp-contact\">\r\n                <p class=\"contact-info\">Hoặc liên hệ:</p>\r\n                <p class=\"contact-phone\">{{số_điện_thoại_liên_hệ}}</p>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          \r\n          <div class=\"page-indicator\">\r\n            <span class=\"indicator\"></span>\r\n            <span class=\"indicator\"></span>\r\n            <span class=\"indicator\"></span>\r\n            <span class=\"indicator active\"></span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </section>",
+  "css": "@import url('https://fonts.googleapis.com/css2?family=Carattere&family=Corinthia:wght@400;700&display=swap');\r\n\r\n:root {\r\n  --primary-color: {{màu_chủ_đạo}};\r\n  --secondary-color: {{màu_phụ}};\r\n  --accent-color: {{màu_nhấn}};\r\n  --background-color: {{màu_nền}};\r\n  --text-color: {{màu_chữ}};\r\n  --light-color: #ffffff;\r\n  --dark-color: #1a1a1a;\r\n  --border-color: rgba(191, 149, 63, 0.3);\r\n  --shadow-color: rgba(0, 0, 0, 0.1);\r\n  \r\n  --title-font: 'Carattere', cursive;\r\n  --heading-font: 'Carattere', cursive;\r\n  --handwriting-font: 'Corinthia', cursive;\r\n  --body-font: 'Corinthia', cursive;\r\n  --sans-font: 'Corinthia', cursive;\r\n  \r\n  --section-spacing: 80px;\r\n  --element-spacing: 30px;\r\n}\r\n\r\n* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  font-family: var(--body-font);\r\n  color: var(--text-color);\r\n  line-height: 1.6;\r\n  background-color: var(--background-color);\r\n}\r\n\r\n/* Cấu trúc chung cho các phần */\r\n.section {\r\n  min-height: 100vh;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  padding: 40px 20px;\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\n\r\n.section-inner {\r\n  max-width: 1000px;\r\n  width: 100%;\r\n  margin: 0 auto;\r\n  position: relative;\r\n}\r\n\r\n.section-title {\r\n  font-family: var(--heading-font);\r\n  font-size: 36px;\r\n  font-weight: 600;\r\n  text-align: center;\r\n  margin-bottom: var(--element-spacing);\r\n  color: var(--primary-color);\r\n  position: relative;\r\n  padding-bottom: 15px;\r\n}\r\n\r\n.section-title:after {\r\n  content: '';\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 50%;\r\n  transform: translateX(-50%);\r\n  width: 100px;\r\n  height: 2px;\r\n  background: var(--primary-color);\r\n}\r\n\r\n.page-indicator {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin-top: var(--element-spacing);\r\n}\r\n\r\n.indicator {\r\n  width: 10px;\r\n  height: 10px;\r\n  border-radius: 50%;\r\n  background-color: var(--border-color);\r\n  margin: 0 5px;\r\n  transition: all 0.3s ease;\r\n}\r\n\r\n.indicator.active {\r\n  background-color: var(--primary-color);\r\n  transform: scale(1.2);\r\n}\r\n\r\n/* Phần 1: Trang bìa */\r\n.cover-background {\r\n  background-color: var(--light-color);\r\n  border: 1px solid var(--border-color);\r\n  padding: 60px;\r\n  box-shadow: 0 20px 50px var(--shadow-color);\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\n\r\n.cover-background:before {\r\n  content: '';\r\n  position: absolute;\r\n  top: 10px;\r\n  left: 10px;\r\n  right: 10px;\r\n  bottom: 10px;\r\n  border: 1px solid var(--border-color);\r\n  pointer-events: none;\r\n}\r\n\r\n.cover-content {\r\n  text-align: center;\r\n  position: relative;\r\n  z-index: 2;\r\n}\r\n\r\n.main-title {\r\n  font-family: var(--title-font);\r\n  font-size: 60px;\r\n  color: var(--primary-color);\r\n  margin-bottom: var(--element-spacing);\r\n  line-height: 1.2;\r\n  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);\r\n}\r\n\r\n.couple-names {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-wrap: wrap;\r\n  margin-bottom: var(--element-spacing);\r\n}\r\n\r\n.bride-name, .groom-name {\r\n  font-family: var(--handwriting-font);\r\n  font-size: 70px;\r\n  font-weight: 700;\r\n  color: var(--primary-color);\r\n  margin: 0 10px;\r\n  line-height: 1;\r\n}\r\n\r\n.ampersand {\r\n  font-family: var(--handwriting-font);\r\n  font-size: 80px;\r\n  color: var(--accent-color);\r\n  margin: 0 20px;\r\n  line-height: 1;\r\n  display: block;\r\n  width: 100%;\r\n}\r\n\r\n.couple-photo {\r\n  margin: var(--element-spacing) auto;\r\n  max-width: 400px;\r\n  position: relative;\r\n}\r\n\r\n.cover-photo {\r\n  width: 100%;\r\n  height: auto;\r\n  border-radius: 10px;\r\n  box-shadow: 0 10px 30px var(--shadow-color);\r\n  border: 5px solid var(--light-color);\r\n}\r\n\r\n.wedding-date, .wedding-time {\r\n  margin: var(--element-spacing) auto;\r\n  max-width: 400px;\r\n  background-color: rgba(255, 255, 255, 0.9);\r\n  padding: 20px;\r\n  border-radius: 10px;\r\n  box-shadow: 0 5px 15px var(--shadow-color);\r\n  border: 1px solid var(--border-color);\r\n}\r\n\r\n.date-line, .time-line {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.date-line:last-child, .time-line:last-child {\r\n  margin-bottom: 0;\r\n}\r\n\r\n.date-label, .time-label {\r\n  font-family: var(--sans-font);\r\n  font-size: 16px;\r\n  font-weight: 500;\r\n  color: var(--secondary-color);\r\n}\r\n\r\n.date-value, .time-value {\r\n  font-family: var(--heading-font);\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n  color: var(--primary-color);\r\n}\r\n\r\n/* Phần 2: Giới thiệu gia đình */\r\n.family-background {\r\n  background-color: var(--light-color);\r\n  border: 1px solid var(--border-color);\r\n  padding: 60px;\r\n  box-shadow: 0 20px 50px var(--shadow-color);\r\n  position: relative;\r\n}\r\n\r\n.family-content {\r\n  position: relative;\r\n  z-index: 2;\r\n}\r\n\r\n.families-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: var(--element-spacing);\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.family-side {\r\n  flex: 1;\r\n  min-width: 250px;\r\n  padding: 20px;\r\n  margin: 10px;\r\n  background-color: rgba(255, 255, 255, 0.9);\r\n  border-radius: 10px;\r\n  box-shadow: 0 5px 15px var(--shadow-color);\r\n  border: 1px solid var(--border-color);\r\n}\r\n\r\n.family-side-title {\r\n  font-family: var(--heading-font);\r\n  font-size: 24px;\r\n  font-weight: 600;\r\n  color: var(--primary-color);\r\n  text-align: center;\r\n  margin-bottom: 20px;\r\n  padding-bottom: 10px;\r\n  border-bottom: 1px solid var(--border-color);\r\n}\r\n\r\n.family-info-line {\r\n  display: flex;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.family-label {\r\n  font-family: var(--sans-font);\r\n  font-size: 16px;\r\n  font-weight: 500;\r\n  color: var(--secondary-color);\r\n  width: 70px;\r\n  flex-shrink: 0;\r\n}\r\n\r\n.family-value {\r\n  font-family: var(--body-font);\r\n  font-size: 18px;\r\n  color: var(--text-color);\r\n}\r\n\r\n.family-divider {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  padding: 0 20px;\r\n}\r\n\r\n.divider-line {\r\n  width: 1px;\r\n  height: 50px;\r\n  background-color: var(--border-color);\r\n}\r\n\r\n.divider-heart {\r\n  width: 30px;\r\n  height: 30px;\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23bf953f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'%3E%3C/path%3E%3C/svg%3E\");\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  margin: 10px 0;\r\n}\r\n\r\n.love-quote {\r\n  font-family: var(--handwriting-font);\r\n  font-size: 40px;\r\n  text-align: center;\r\n  color: var(--primary-color);\r\n  margin: var(--element-spacing) 0;\r\n  line-height: 1.4;\r\n}\r\n\r\n.family-photo {\r\n  width: 100%;\r\n  height: auto;\r\n  border-radius: 10px;\r\n  box-shadow: 0 10px 30px var(--shadow-color);\r\n  border: 5px solid var(--light-color);\r\n}\r\n\r\n/* Phần 4: Thời gian và địa điểm */\r\n.venue-background {\r\n  background-color: var(--light-color);\r\n  border: 1px solid var(--border-color);\r\n  padding: 60px;\r\n  box-shadow: 0 20px 50px var(--shadow-color);\r\n  position: relative;\r\n}\r\n\r\n.venue-content {\r\n  position: relative;\r\n  z-index: 2;\r\n}\r\n\r\n.venue-details {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: var(--element-spacing);\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.venue-info {\r\n  flex: 1;\r\n  min-width: 300px;\r\n  padding: 20px;\r\n  margin: 10px;\r\n}\r\n\r\n.venue-time, .venue-location {\r\n  display: flex;\r\n  align-items: flex-start;\r\n  margin-bottom: 30px;\r\n  background-color: rgba(255, 255, 255, 0.9);\r\n  padding: 20px;\r\n  border-radius: 10px;\r\n  box-shadow: 0 5px 15px var(--shadow-color);\r\n  border: 1px solid var(--border-color);\r\n}\r\n\r\n.venue-icon {\r\n  width: 50px;\r\n  height: 50px;\r\n  border-radius: 50%;\r\n  background-color: var(--primary-color);\r\n  margin-right: 20px;\r\n  flex-shrink: 0;\r\n  position: relative;\r\n}\r\n\r\n.venue-icon:after {\r\n  content: '';\r\n  position: absolute;\r\n  width: 24px;\r\n  height: 24px;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: contain;\r\n}\r\n\r\n.reception-icon:after {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 6 12 12 16 14'%3E%3C/polyline%3E%3C/svg%3E\");\r\n}\r\n\r\n.dinner-icon:after {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2'%3E%3C/path%3E%3Cpath d='M7 2v20'%3E%3C/path%3E%3Cpath d='M21 15V2'%3E%3C/path%3E%3Cpath d='M18 15V2'%3E%3C/path%3E%3Cpath d='M21 15a3 3 0 1 1-6 0'%3E%3C/path%3E%3C/svg%3E\");\r\n}\r\n\r\n.location-icon:after {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'%3E%3C/path%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3C/svg%3E\");\r\n}\r\n\r\n.venue-time-details, .venue-location-details {\r\n  flex: 1;\r\n}\r\n\r\n.venue-time-title, .venue-location-title {\r\n  font-family: var(--heading-font);\r\n  font-size: 20px;\r\n  font-weight: 600;\r\n  color: var(--primary-color);\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.venue-time-value {\r\n  font-family: var(--body-font);\r\n  font-size: 18px;\r\n  color: var(--text-color);\r\n}\r\n\r\n.venue-location-name {\r\n  font-family: var(--body-font);\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n  color: var(--text-color);\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.venue-location-address {\r\n  font-family: var(--body-font);\r\n  font-size: 16px;\r\n  color: var(--secondary-color);\r\n}\r\n\r\n.venue-map {\r\n  flex: 1;\r\n  min-width: 300px;\r\n  padding: 20px;\r\n  margin: 10px;\r\n}\r\n\r\n.map-container {\r\n  position: relative;\r\n  border-radius: 10px;\r\n  overflow: hidden;\r\n  box-shadow: 0 10px 30px var(--shadow-color);\r\n  border: 5px solid var(--light-color);\r\n}\r\n\r\n.map-image {\r\n  width: 100%;\r\n  height: auto;\r\n  display: block;\r\n}\r\n\r\n.map-overlay {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  background-color: rgba(0, 0, 0, 0.3);\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  opacity: 0;\r\n  transition: opacity 0.3s ease;\r\n}\r\n\r\n.map-container:hover .map-overlay {\r\n  opacity: 1;\r\n}\r\n\r\n.map-button {\r\n  font-family: var(--sans-font);\r\n  font-size: 16px;\r\n  font-weight: 500;\r\n  color: var(--light-color);\r\n  background-color: var(--primary-color);\r\n  padding: 10px 20px;\r\n  border-radius: 30px;\r\n  text-decoration: none;\r\n  transition: all 0.3s ease;\r\n}\r\n\r\n.map-button:hover {\r\n  background-color: var(--accent-color);\r\n  transform: scale(1.05);\r\n}\r\n\r\n.venue-photo {\r\n  width: 100%;\r\n  height: auto;\r\n  border-radius: 10px;\r\n  box-shadow: 0 10px 30px var(--shadow-color);\r\n  border: 5px solid var(--light-color);\r\n}\r\n\r\n/* Phần 5: Lời cảm ơn */\r\n.thanks-background {\r\n  background-color: var(--light-color);\r\n  border: 1px solid var(--border-color);\r\n  padding: 60px;\r\n  box-shadow: 0 20px 50px var(--shadow-color);\r\n  position: relative;\r\n}\r\n\r\n.thanks-content {\r\n  position: relative;\r\n  z-index: 2;\r\n}\r\n\r\n.thanks-message {\r\n  font-family: var(--handwriting-font);\r\n  font-size: 40px;\r\n  text-align: center;\r\n  color: var(--primary-color);\r\n  margin: var(--element-spacing) 0;\r\n  line-height: 1.4;\r\n}\r\n\r\n.thanks-photo {\r\n  width: 100%;\r\n  height: auto;\r\n  border-radius: 10px;\r\n  box-shadow: 0 10px 30px var(--shadow-color);\r\n  border: 5px solid var(--light-color);\r\n  margin-bottom: var(--element-spacing);\r\n}\r\n\r\n.rsvp-section {\r\n  margin: var(--element-spacing) auto;\r\n  max-width: 500px;\r\n  background-color: rgba(255, 255, 255, 0.9);\r\n  padding: 30px;\r\n  border-radius: 10px;\r\n  box-shadow: 0 5px 15px var(--shadow-color);\r\n  border: 1px solid var(--border-color);\r\n  text-align: center;\r\n}\r\n\r\n.rsvp-title {\r\n  font-family: var(--heading-font);\r\n  font-size: 24px;\r\n  font-weight: 600;\r\n  color: var(--primary-color);\r\n  margin-bottom: 20px;\r\n}\r\n\r\n.rsvp-options {\r\n  display: flex;\r\n  justify-content: center;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.rsvp-qr, .rsvp-contact {\r\n  padding: 15px;\r\n  margin: 10px;\r\n}\r\n\r\n.qr-code {\r\n  width: 150px;\r\n  height: 150px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid var(--border-color);\r\n  padding: 5px;\r\n  background-color: white;\r\n}\r\n\r\n.qr-text {\r\n  font-family: var(--sans-font);\r\n  font-size: 14px;\r\n  color: var(--secondary-color);\r\n}\r\n\r\n.contact-info {\r\n  font-family: var(--sans-font);\r\n  font-size: 16px;\r\n  color: var(--secondary-color);\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.contact-phone {\r\n  font-family: var(--heading-font);\r\n  font-size: 20px;\r\n  font-weight: 600;\r\n  color: var(--primary-color);\r\n}\r\n\r\n/* Responsive Styles */\r\n@media (max-width: 768px) {\r\n  :root {\r\n    --section-spacing: 60px;\r\n    --element-spacing: 20px;\r\n  }\r\n  \r\n  .section {\r\n    padding: 30px 15px;\r\n  }\r\n  \r\n  .cover-background, .family-background, .venue-background, .thanks-background {\r\n    padding: 30px 20px;\r\n  }\r\n  \r\n  .main-title {\r\n    font-size: 40px;\r\n  }\r\n  \r\n  .bride-name, .groom-name {\r\n    font-size: 50px;\r\n  }\r\n  \r\n  .ampersand {\r\n    font-size: 60px;\r\n  }\r\n  \r\n  .section-title {\r\n    font-size: 30px;\r\n  }\r\n  \r\n  .families-container {\r\n    flex-direction: column;\r\n  }\r\n  \r\n  .family-divider {\r\n    flex-direction: row;\r\n    padding: 20px 0;\r\n  }\r\n  \r\n  .divider-line {\r\n    width: 50px;\r\n    height: 1px;\r\n  }\r\n  \r\n  .love-quote {\r\n    font-size: 30px;\r\n  }\r\n  \r\n  .venue-details {\r\n    flex-direction: column;\r\n  }\r\n}\r\n\r\n/* Animation Classes */\r\n.fade-in {\r\n  opacity: 0;\r\n  animation: fadeIn 1.5s forwards;\r\n}\r\n\r\n.slide-up {\r\n  opacity: 0;\r\n  transform: translateY(30px);\r\n  animation: slideUp 1.5s forwards;\r\n}\r\n\r\n.scale-in {\r\n  opacity: 0;\r\n  transform: scale(0.9);\r\n  animation: scaleIn 1.5s forwards;\r\n}\r\n\r\n@keyframes fadeIn {\r\n  to {\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n@keyframes slideUp {\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n@keyframes scaleIn {\r\n  to {\r\n    opacity: 1;\r\n    transform: scale(1);\r\n  }\r\n}",
+  "js": "document.addEventListener('DOMContentLoaded', function() {\r\n  // Thêm các class animation cho các phần tử\r\n  const animatedElements = [\r\n    { selector: '.main-title', className: 'fade-in', delay: 0 },\r\n    { selector: '.couple-names', className: 'scale-in', delay: 300 },\r\n    { selector: '.cover-photo', className: 'fade-in', delay: 600 },\r\n    { selector: '.wedding-date', className: 'slide-up', delay: 900 },\r\n    { selector: '.wedding-time', className: 'slide-up', delay: 1200 },\r\n    { selector: '.section-title', className: 'fade-in', delay: 0 },\r\n    { selector: '.family-side', className: 'slide-up', delay: 300 },\r\n    { selector: '.love-quote', className: 'fade-in', delay: 600 },\r\n    { selector: '.family-photo', className: 'scale-in', delay: 900 },\r\n    { selector: '.venue-time', className: 'slide-up', delay: 300 },\r\n    { selector: '.venue-location', className: 'slide-up', delay: 600 },\r\n    { selector: '.map-container', className: 'fade-in', delay: 900 },\r\n    { selector: '.venue-photo', className: 'scale-in', delay: 1200 },\r\n    { selector: '.thanks-message', className: 'fade-in', delay: 300 },\r\n    { selector: '.thanks-photo', className: 'scale-in', delay: 600 },\r\n    { selector: '.rsvp-section', className: 'slide-up', delay: 900 }\r\n  ];\r\n  \r\n  // Thêm các class animation khi phần tử xuất hiện trong viewport\r\n  const observer = new IntersectionObserver((entries) => {\r\n    entries.forEach(entry => {\r\n      if (entry.isIntersecting) {\r\n        const section = entry.target;\r\n        const sectionId = section.id;\r\n        \r\n        animatedElements.forEach(item => {\r\n          const elements = section.querySelectorAll(item.selector);\r\n          elements.forEach(element => {\r\n            setTimeout(() => {\r\n              element.classList.add(item.className);\r\n            }, item.delay);\r\n          });\r\n        });\r\n        \r\n        // Cập nhật indicator\r\n        document.querySelectorAll('.indicator').forEach(indicator => {\r\n          indicator.classList.remove('active');\r\n        });\r\n        \r\n        const activeIndicators = document.querySelectorAll(`.${sectionId} .indicator`);\r\n        if (activeIndicators.length > 0) {\r\n          const index = Array.from(document.querySelectorAll('.section')).findIndex(s => s.id === sectionId);\r\n          if (index >= 0) {\r\n            const indicators = document.querySelectorAll('.page-indicator');\r\n            indicators.forEach(indicatorSet => {\r\n              const dots = indicatorSet.querySelectorAll('.indicator');\r\n              if (dots[index]) {\r\n                dots[index].classList.add('active');\r\n              }\r\n            });\r\n          }\r\n        }\r\n        \r\n        observer.unobserve(section);\r\n      }\r\n    });\r\n  }, { threshold: 0.3 });\r\n});",
+  "dynamicFields": [
+    {
+      "id": "field_1746478803695",
+      "name": "tiêu_đề_thiệp",
+      "type": "text",
+      "defaultValue": "Save the date",
+      "description": "Tiêu đề thiệp",
+      "_id": {
+        "$oid": "68193082ff27b7470539f42a"
+      }
+    },
+    {
+      "id": "field_1746478833444",
+      "name": "tên_cô_dâu",
+      "type": "text",
+      "defaultValue": "Nguyễn Thị Hoa",
+      "description": "Tên của cô dâu",
+      "_id": {
+        "$oid": "68193082ff27b7470539f42b"
+      }
+    },
+    {
+      "id": "field_1746478850194",
+      "name": "tên_chú_rể",
+      "type": "text",
+      "defaultValue": "Trần Văn Nam",
+      "description": "Tên của chú rể",
+      "_id": {
+        "$oid": "68193082ff27b7470539f42c"
+      }
+    },
+    {
+      "id": "field_1746478867927",
+      "name": "màu_chủ_đạo",
+      "type": "color",
+      "defaultValue": "#8B0000",
+      "description": "Màu chủ đạo",
+      "_id": {
+        "$oid": "68193082ff27b7470539f42d"
+      }
+    },
+    {
+      "id": "field_1746478884227",
+      "name": "màu_phụ",
+      "type": "color",
+      "defaultValue": "#B22222",
+      "description": "Màu phụ",
+      "_id": {
+        "$oid": "68193082ff27b7470539f42e"
+      }
+    },
+    {
+      "id": "field_1746478897627",
+      "name": "màu_nhấn",
+      "type": "color",
+      "defaultValue": "#D4AF37",
+      "description": "Màu nhấn",
+      "_id": {
+        "$oid": "68193082ff27b7470539f42f"
+      }
+    },
+    {
+      "id": "field_1746478914210",
+      "name": "màu_nền",
+      "type": "color",
+      "defaultValue": "#8B0000",
+      "description": "Màu nền",
+      "_id": {
+        "$oid": "68193082ff27b7470539f430"
+      }
+    },
+    {
+      "id": "field_1746478929643",
+      "name": "màu_chữ",
+      "type": "color",
+      "defaultValue": "#333333",
+      "description": "Màu chữ",
+      "_id": {
+        "$oid": "68193082ff27b7470539f431"
+      }
+    },
+    {
+      "id": "field_1746478942809",
+      "name": "ảnh_cô_dâu_chú_rể_1",
+      "type": "text",
+      "defaultValue": "https://tonywedding.vn/wp-content/uploads/2022/02/1-55-3.jpg",
+      "description": "Ảnh cô dâu chú rể cho trang bìa",
+      "_id": {
+        "$oid": "68193082ff27b7470539f432"
+      }
+    },
+    {
+      "id": "field_1746479007958",
+      "name": "ngày_cưới_dương_lịch",
+      "type": "date",
+      "defaultValue": "12/12/2025",
+      "description": "Ngày cưới dương lịch",
+      "_id": {
+        "$oid": "68193082ff27b7470539f433"
+      }
+    },
+    {
+      "id": "field_1746479029641",
+      "name": "ngày_cưới_âm_lịch",
+      "type": "date",
+      "defaultValue": "12/12/2025",
+      "description": "Ngày cưới âm lịch",
+      "_id": {
+        "$oid": "68193082ff27b7470539f434"
+      }
+    },
+    {
+      "id": "field_1746479047508",
+      "name": "giờ_đón_khách",
+      "type": "text",
+      "defaultValue": "10:00",
+      "description": "Giờ đón khách",
+      "_id": {
+        "$oid": "68193082ff27b7470539f435"
+      }
+    },
+    {
+      "id": "field_1746479062558",
+      "name": "giờ_nhập_tiệc",
+      "type": "text",
+      "defaultValue": "11:00",
+      "description": "Giờ nhập tiệc",
+      "_id": {
+        "$oid": "68193082ff27b7470539f436"
+      }
+    },
+    {
+      "id": "field_1746479074574",
+      "name": "tên_cha_chú_rể",
+      "type": "text",
+      "defaultValue": "Trần Văn Bình",
+      "description": "Tên cha chú rể",
+      "_id": {
+        "$oid": "68193082ff27b7470539f437"
+      }
+    },
+    {
+      "id": "field_1746479099757",
+      "name": "tên_mẹ_chú_rể",
+      "type": "text",
+      "defaultValue": "Thái Thị Hân",
+      "description": "Tên mẹ chú rể",
+      "_id": {
+        "$oid": "68193082ff27b7470539f438"
+      }
+    },
+    {
+      "id": "field_1746479116457",
+      "name": "địa_chỉ_nhà_trai",
+      "type": "text",
+      "defaultValue": "02 Phạm Ngũ Lão, Tp. Tam Kỳ",
+      "description": "Địa chỉ nhà trai",
+      "_id": {
+        "$oid": "68193082ff27b7470539f439"
+      }
+    },
+    {
+      "id": "field_1746479139673",
+      "name": "tên_cha_cô_dâu",
+      "type": "text",
+      "defaultValue": "Nguyễn Thành Minh",
+      "description": "Tên cha cô dâu",
+      "_id": {
+        "$oid": "68193082ff27b7470539f43a"
+      }
+    },
+    {
+      "id": "field_1746479161756",
+      "name": "tên_mẹ_cô_dâu",
+      "type": "text",
+      "defaultValue": "Đoàn Thị Hồng",
+      "description": "Tên mẹ cô dâu",
+      "_id": {
+        "$oid": "68193082ff27b7470539f43b"
+      }
+    },
+    {
+      "id": "field_1746479180606",
+      "name": "địa_chỉ_nhà_gái",
+      "type": "text",
+      "defaultValue": "10 Hùng Vương, Tp. Tam Kỳ",
+      "description": "Địa chỉ nhà gái",
+      "_id": {
+        "$oid": "68193082ff27b7470539f43c"
+      }
+    },
+    {
+      "id": "field_1746479209105",
+      "name": "quote_dòng_1",
+      "type": "text",
+      "defaultValue": "“Hôn nhân là chuyện cả đời,",
+      "description": "Quote dòng 1",
+      "_id": {
+        "$oid": "68193082ff27b7470539f43d"
+      }
+    },
+    {
+      "id": "field_1746479244554",
+      "name": "quote_dòng_2",
+      "type": "text",
+      "defaultValue": "Yêu người vừa ý, cưới người mình thương...\"",
+      "description": "Quote dòng 2",
+      "_id": {
+        "$oid": "68193082ff27b7470539f43e"
+      }
+    },
+    {
+      "id": "field_1746479263837",
+      "name": "ảnh_cô_dâu_chú_rể_2",
+      "type": "image",
+      "defaultValue": "https://tonywedding.vn/wp-content/uploads/2022/02/1-71-2.jpg",
+      "description": "22. Ảnh cô dâu chú rể cho phần giới thiệu gia đình",
+      "_id": {
+        "$oid": "68193082ff27b7470539f43f"
+      }
+    },
+    {
+      "id": "field_1746479287687",
+      "name": "tên_địa_điểm",
+      "type": "text",
+      "defaultValue": "Nhà hàng Thịnh Phát",
+      "description": "Tên địa điểm",
+      "_id": {
+        "$oid": "68193082ff27b7470539f440"
+      }
+    },
+    {
+      "id": "field_1746479316503",
+      "name": "địa_chỉ_địa_điểm",
+      "type": "text",
+      "defaultValue": "130 Hùng Vương, Tp. Tam Kỳ",
+      "description": "Địa chỉ địa điểm",
+      "_id": {
+        "$oid": "68193082ff27b7470539f441"
+      }
+    },
+    {
+      "id": "field_1746479354885",
+      "name": "ảnh_bản_đồ",
+      "type": "image",
+      "defaultValue": "https://b.basemaps.cartocdn.com/rastertiles/voyager/16/52175/30797@2x.png",
+      "description": "Ảnh bản đồ",
+      "_id": {
+        "$oid": "68193082ff27b7470539f442"
+      }
+    },
+    {
+      "id": "field_1746479375152",
+      "name": "link_bản_đồ",
+      "type": "text",
+      "defaultValue": "https://maps.app.goo.gl/n9mXK8Bz5yYFyHcs6",
+      "description": "Link bản đồ",
+      "_id": {
+        "$oid": "68193082ff27b7470539f443"
+      }
+    },
+    {
+      "id": "field_1746479412300",
+      "name": "ảnh_cô_dâu_chú_rể_3",
+      "type": "image",
+      "defaultValue": "https://tonywedding.vn/wp-content/uploads/2022/02/1-75-2.jpg",
+      "description": "Ảnh cô dâu chú rể cho phần thời gian và địa điểm",
+      "_id": {
+        "$oid": "68193082ff27b7470539f444"
+      }
+    },
+    {
+      "id": "field_1746479438183",
+      "name": "lời_cảm_ơn_1",
+      "type": "text",
+      "defaultValue": "Xin cảm ơn",
+      "description": "Lời cảm ơn 1",
+      "_id": {
+        "$oid": "68193082ff27b7470539f445"
+      }
+    },
+    {
+      "id": "field_1746479455433",
+      "name": "lời_cảm_ơn_2",
+      "type": "text",
+      "defaultValue": "Sự hiện diện của bạn là niềm vinh hạnh của chúng tôi",
+      "description": "Lời cảm ơn 2",
+      "_id": {
+        "$oid": "68193082ff27b7470539f446"
+      }
+    },
+    {
+      "id": "field_1746479490115",
+      "name": "ảnh_cô_dâu_chú_rể_4",
+      "type": "image",
+      "defaultValue": "https://tonywedding.vn/wp-content/uploads/2022/02/1-55-3.jpg",
+      "description": "Ảnh cô dâu chú rể cho phần lời cảm ơn",
+      "_id": {
+        "$oid": "68193082ff27b7470539f447"
+      }
+    },
+    {
+      "id": "field_1746479529881",
+      "name": "mã_qr",
+      "type": "image",
+      "defaultValue": "https://qrcode-gen.com/images/qrcode-default.png",
+      "description": "Mã QR",
+      "_id": {
+        "$oid": "68193082ff27b7470539f448"
+      }
+    },
+    {
+      "id": "field_1746479563764",
+      "name": "số_điện_thoại_liên_hệ",
+      "type": "text",
+      "defaultValue": "0385.835.634",
+      "description": "Số điện thoại liên hệ",
+      "_id": {
+        "$oid": "68193082ff27b7470539f449"
+      }
+    }
+  ],
+  "rating": 0,
+  "reviewCount": 0,
+  "createdAt": {
+    "$date": "2025-05-05T21:41:22.586Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-06T06:18:56.371Z"
+  },
+  "__v": 0,
+  "comparePrice": 2500000,
+  "priceAmount": 2000000
+},
+{
+  "_id": {
+    "$oid": "6819cb88011b0d2e91698a6b"
+  },
+  "name": "Mẫu thiệp đơn giản",
+  "category": "vintage",
+  "price": "free",
+  "priceAmount": 0,
+  "comparePrice": 0,
+  "status": "published",
+  "thumbnail": "/templates/thumbnails/1746521003102-775603052.png",
+  "html": "<div class=\"wedding-card\">\r\n    <div class=\"card-inner\">\r\n      <div class=\"card-content\">\r\n        <div class=\"ornament top-ornament\"></div>\r\n        \r\n        <h1 class=\"invitation-text\">Thiệp Mời</h1>\r\n        \r\n        <div class=\"couple-names\">\r\n          <span class=\"bride-name\">{{tên_cô_dâu}}</span>\r\n          <span class=\"ampersand\">&</span>\r\n          <span class=\"groom-name\">{{tên_chú_rể}}</span>\r\n        </div>\r\n        \r\n        <p class=\"invitation-message\">Trân trọng kính mời</p>\r\n        \r\n        <div class=\"wedding-details\">\r\n          <div class=\"detail-item\">\r\n            <div class=\"detail-icon date-icon\"></div>\r\n            <div class=\"detail-content\">\r\n              <h3>Ngày</h3>\r\n              <p>{{ngày_cưới}}</p>\r\n              <p class=\"detail-sub\">{{ngày_âm_lịch}}</p>\r\n            </div>\r\n          </div>\r\n          \r\n          <div class=\"detail-item\">\r\n            <div class=\"detail-icon time-icon\"></div>\r\n            <div class=\"detail-content\">\r\n              <h3>Giờ</h3>\r\n              <p>{{giờ_đón_khách}}</p>\r\n              <p class=\"detail-sub\">{{giờ_nhập_tiệc}}</p>\r\n            </div>\r\n          </div>\r\n          \r\n          <div class=\"detail-item\">\r\n            <div class=\"detail-icon location-icon\"></div>\r\n            <div class=\"detail-content\">\r\n              <h3>Địa Điểm</h3>\r\n              <p>{{tên_địa_điểm}}</p>\r\n              <p class=\"detail-sub\">{{địa_chỉ}}</p>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        \r\n        <p class=\"thank-you\">Sự hiện diện của quý khách là niềm vinh hạnh của chúng tôi</p>\r\n        \r\n        <div class=\"ornament bottom-ornament\"></div>\r\n      </div>\r\n    </div>\r\n  </div>",
+  "css": ":root {\r\n  --primary-color: #8B0000;    /* Đỏ Burgundy - màu chủ đạo */\r\n  --secondary-color: #B22222;  /* Đỏ Ruby - màu phụ */\r\n  --accent-color: #D4AF37;     /* Vàng Gold - màu nhấn */\r\n  --background-color: #FFF8E7; /* Kem Ngà - màu nền chính */\r\n  --text-color: #333333;       /* Xám Đen - màu chữ chính */\r\n  --light-color: #ffffff;      /* Trắng - màu sáng */\r\n  --border-color: rgba(139, 0, 0, 0.3); /* Đỏ Burgundy trong suốt - viền */\r\n}\r\n\r\n* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  font-family: 'Cormorant Garamond', serif;\r\n  background-color: var(--background-color);\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  min-height: 100vh;\r\n  padding: 20px;\r\n  color: var(--text-color);\r\n}\r\n\r\n.wedding-card {\r\n  max-width: 500px;\r\n  width: 100%;\r\n  margin: 0 auto;\r\n  perspective: 1000px;\r\n}\r\n\r\n.card-inner {\r\n  background-color: var(--light-color);\r\n  border: 1px solid var(--border-color);\r\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);\r\n  padding: 40px;\r\n  border-radius: 10px;\r\n  position: relative;\r\n  transform-style: preserve-3d;\r\n  transition: transform 0.6s;\r\n}\r\n\r\n.card-inner:hover {\r\n  transform: translateY(-5px);\r\n  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);\r\n}\r\n\r\n.card-content {\r\n  text-align: center;\r\n  position: relative;\r\n}\r\n\r\n.ornament {\r\n  height: 20px;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  background-size: contain;\r\n  margin: 20px 0;\r\n}\r\n\r\n.top-ornament {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,5 H40 M60,5 H100 M50,0 L50,10' stroke='%238B0000' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='5' r='3' fill='none' stroke='%238B0000' stroke-width='0.5'/%3E%3C/svg%3E\");\r\n}\r\n\r\n.bottom-ornament {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,5 H40 M60,5 H100 M50,0 L50,10' stroke='%238B0000' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='5' r='3' fill='none' stroke='%238B0000' stroke-width='0.5'/%3E%3C/svg%3E\");\r\n}\r\n\r\n.invitation-text {\r\n  font-family: 'Great Vibes', cursive;\r\n  font-size: 48px;\r\n  color: var(--primary-color);\r\n  margin-bottom: 20px;\r\n  font-weight: 400;\r\n}\r\n\r\n.couple-names {\r\n  margin-bottom: 30px;\r\n}\r\n\r\n.bride-name, .groom-name {\r\n  font-family: 'Great Vibes', cursive;\r\n  font-size: 36px;\r\n  color: var(--secondary-color);\r\n  display: inline-block;\r\n}\r\n\r\n.ampersand {\r\n  font-family: 'Great Vibes', cursive;\r\n  font-size: 40px;\r\n  color: var(--accent-color);\r\n  margin: 0 10px;\r\n  display: inline-block;\r\n}\r\n\r\n.invitation-message {\r\n  font-family: 'Montserrat', sans-serif;\r\n  font-size: 14px;\r\n  text-transform: uppercase;\r\n  letter-spacing: 2px;\r\n  color: var(--secondary-color);\r\n  margin-bottom: 30px;\r\n}\r\n\r\n.wedding-details {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 20px;\r\n  margin-bottom: 30px;\r\n}\r\n\r\n.detail-item {\r\n  display: flex;\r\n  align-items: center;\r\n  padding: 15px;\r\n  border: 1px solid var(--border-color);\r\n  border-radius: 8px;\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n}\r\n\r\n.detail-icon {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%;\r\n  background-color: var(--primary-color);\r\n  margin-right: 15px;\r\n  flex-shrink: 0;\r\n  position: relative;\r\n}\r\n\r\n.detail-icon:after {\r\n  content: '';\r\n  position: absolute;\r\n  width: 20px;\r\n  height: 20px;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: contain;\r\n}\r\n\r\n.date-icon:after {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E\");\r\n}\r\n\r\n.time-icon:after {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 6 12 12 16 14'%3E%3C/polyline%3E%3C/svg%3E\");\r\n}\r\n\r\n.location-icon:after {\r\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'%3E%3C/path%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3C/svg%3E\");\r\n}\r\n\r\n.detail-content {\r\n  flex: 1;\r\n  text-align: left;\r\n}\r\n\r\n.detail-content h3 {\r\n  font-family: 'Montserrat', sans-serif;\r\n  font-size: 14px;\r\n  text-transform: uppercase;\r\n  letter-spacing: 1px;\r\n  color: var(--primary-color);\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.detail-content p {\r\n  font-size: 18px;\r\n  color: var(--text-color);\r\n  margin-bottom: 2px;\r\n}\r\n\r\n.detail-sub {\r\n  font-size: 14px;\r\n  color: var(--secondary-color);\r\n  font-style: italic;\r\n}\r\n\r\n.thank-you {\r\n  font-family: 'Cormorant Garamond', serif;\r\n  font-size: 16px;\r\n  font-style: italic;\r\n  color: var(--secondary-color);\r\n  margin-top: 20px;\r\n  margin-bottom: 20px;\r\n}\r\n\r\n/* Responsive Styles */\r\n@media (min-width: 768px) {\r\n  .wedding-details {\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n  }\r\n  \r\n  .detail-item {\r\n    flex: 1;\r\n    min-width: 200px;\r\n  }\r\n}\r\n\r\n@media (max-width: 480px) {\r\n  .card-inner {\r\n    padding: 20px;\r\n  }\r\n  \r\n  .invitation-text {\r\n    font-size: 36px;\r\n  }\r\n  \r\n  .bride-name, .groom-name {\r\n    font-size: 28px;\r\n  }\r\n  \r\n  .ampersand {\r\n    font-size: 32px;\r\n  }\r\n}",
+  "js": "document.addEventListener('DOMContentLoaded', function() {\r\n  // Hiệu ứng đơn giản khi tải trang\r\n  const cardInner = document.querySelector('.card-inner');\r\n  setTimeout(() => {\r\n    cardInner.style.transform = 'translateY(0)';\r\n    cardInner.style.opacity = '1';\r\n  }, 300);\r\n  \r\n  // Thêm hiệu ứng hover cho các detail-item\r\n  const detailItems = document.querySelectorAll('.detail-item');\r\n  detailItems.forEach(item => {\r\n    item.addEventListener('mouseenter', function() {\r\n      this.style.transform = 'translateY(-5px)';\r\n      this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';\r\n    });\r\n    \r\n    item.addEventListener('mouseleave', function() {\r\n      this.style.transform = 'translateY(0)';\r\n      this.style.boxShadow = 'none';\r\n    });\r\n  });\r\n});",
+  "dynamicFields": [
+    {
+      "id": "field_1746520774124",
+      "name": "tên_cô_dâu",
+      "type": "text",
+      "defaultValue": "Nguyễn Thị Hoa",
+      "description": "Tên của cô dâu",
+      "_id": {
+        "$oid": "6819cb88011b0d2e91698a6c"
+      }
+    },
+    {
+      "id": "field_1746520809571",
+      "name": "tên_chú_rể",
+      "type": "text",
+      "defaultValue": "Trần Văn Nam",
+      "description": "Tên của chú rể",
+      "_id": {
+        "$oid": "6819cb88011b0d2e91698a6d"
+      }
+    },
+    {
+      "id": "field_1746520818670",
+      "name": "ngày_cưới",
+      "type": "text",
+      "defaultValue": "12/05/2023",
+      "description": "Ngày tổ chức lễ cưới",
+      "_id": {
+        "$oid": "6819cb88011b0d2e91698a6e"
+      }
+    },
+    {
+      "id": "field_1746520851236",
+      "name": "ngày_âm_lịch",
+      "type": "text",
+      "defaultValue": "12/05/2023",
+      "description": "Ngày âm",
+      "_id": {
+        "$oid": "6819cb88011b0d2e91698a6f"
+      }
+    },
+    {
+      "id": "field_1746520876886",
+      "name": "giờ_đón_khách",
+      "type": "text",
+      "defaultValue": "10:00",
+      "description": "Giờ đón khách",
+      "_id": {
+        "$oid": "6819cb88011b0d2e91698a70"
+      }
+    },
+    {
+      "id": "field_1746520899769",
+      "name": "giờ_nhập_tiệc",
+      "type": "text",
+      "defaultValue": "11:00",
+      "description": "Giờ nhập tiệc",
+      "_id": {
+        "$oid": "6819cb88011b0d2e91698a71"
+      }
+    },
+    {
+      "id": "field_1746520915618",
+      "name": "tên_địa_điểm",
+      "type": "text",
+      "defaultValue": "Nhà hàng",
+      "description": "Tên địa điểm",
+      "_id": {
+        "$oid": "6819cb88011b0d2e91698a72"
+      }
+    },
+    {
+      "id": "field_1746520938907",
+      "name": "địa_chỉ",
+      "type": "text",
+      "defaultValue": "Địa chỉ",
+      "description": "Địa chỉ",
+      "_id": {
+        "$oid": "6819cb88011b0d2e91698a73"
+      }
+    }
+  ],
+  "rating": 0,
+  "reviewCount": 0,
+  "createdAt": {
+    "$date": "2025-05-06T08:42:48.153Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-06T08:43:23.109Z"
+  },
+  "__v": 0
+}]
