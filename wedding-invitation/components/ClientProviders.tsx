@@ -20,6 +20,7 @@ const wagmiConfig = getDefaultConfig({
   transports: {
     [sepolia.id]: http("https://sepolia.infura.io/v3/"),
   },
+  ssr: true, // Enable SSR support
 });
 
 export default function ClientProviders({ children }: { children: ReactNode }) {
@@ -30,7 +31,17 @@ export default function ClientProviders({ children }: { children: ReactNode }) {
   }, []);
 
   if (!mounted) {
-    return null;
+    return (
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        {children}
+        <Toaster />
+      </ThemeProvider>
+    );
   }
 
   return (

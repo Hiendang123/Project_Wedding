@@ -21,6 +21,7 @@ import { sepolia } from "wagmi/chains";
 import { parseEther, Hash } from "viem";
 import { OwnerWallet } from "@/components/OwnerWallet";
 import { PaymentModal } from "@/components/PaymentModal";
+import { WalletWrapper } from "@/components/WalletWrapper";
 
 interface ChargeRes {
   hosted_url: string;
@@ -137,98 +138,100 @@ export default function CheckoutPage() {
   console.log("PaymentModal props:", paymentStatus);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-black text-gray-900 dark:text-white">
-      <Header />
-      <main className="flex-1 container mx-auto py-8 px-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Preview */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold">Xem trước</h2>
-          <div className="border rounded-lg overflow-hidden shadow dark:border-gray-700 min-h-[300px] flex items-center justify-center bg-gray-50 dark:bg-gray-800">
-            {template.thumbnail ? (
-              <Image
-                src={template.thumbnail}
-                alt={template.name}
-                width={800}
-                height={600}
-                className="w-full h-auto object-cover"
-              />
-            ) : (
-              <span className="text-sm text-gray-400">
-                Không có ảnh xem trước
-              </span>
-            )}
-          </div>
-        </div>
-
-        {/* Order Summary */}
-        <Card className="shadow-lg border-pink-200/60 dark:border-pink-800/40">
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold flex items-center gap-2">
-              Thanh toán
-              <Badge
-                variant="outline"
-                className="bg-pink-50 text-pink-600 dark:bg-pink-900/20 dark:text-pink-300"
-              >
-                Crypto
-              </Badge>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div>
-              <p className="text-lg font-medium">{template.name}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Mã: {template._id}
-              </p>
-            </div>
-
-            <div className="border-t pt-4 flex items-center justify-between text-lg font-semibold">
-              <span>Tổng:</span>
-              <span className="text-pink-600 dark:text-pink-400">
-                {template.priceAmount.toLocaleString("vi-VN")} VNĐ
-              </span>
-            </div>
-
-            {/* Wallet connect + pay */}
-            <ConnectButton chainStatus="icon" showBalance={false} />
-            <OwnerWallet />
-
-            <Button
-              onClick={handlePay}
-              disabled={paymentStatus.isProcessing || !isConnected}
-              className="w-full bg-pink-600 hover:bg-pink-700 text-white"
-            >
-              {paymentStatus.isProcessing ? (
-                <>
-                  <Spinner size="sm" className="mr-2" /> Đang gửi...
-                </>
+    <WalletWrapper>
+      <div className="min-h-screen flex flex-col bg-white dark:bg-black text-gray-900 dark:text-white">
+        <Header />
+        <main className="flex-1 container mx-auto py-8 px-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Preview */}
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold">Xem trước</h2>
+            <div className="border rounded-lg overflow-hidden shadow dark:border-gray-700 min-h-[300px] flex items-center justify-center bg-gray-50 dark:bg-gray-800">
+              {template.thumbnail ? (
+                <Image
+                  src={template.thumbnail}
+                  alt={template.name}
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                />
               ) : (
-                `Thanh toán ${PRICE_ETH} ETH`
+                <span className="text-sm text-gray-400">
+                  Không có ảnh xem trước
+                </span>
               )}
-            </Button>
+            </div>
+          </div>
 
-            <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
-              Bạn sẽ được chuyển tới Coinbase Commerce để hoàn tất thanh toán.
-              Sau khi thanh toán thành công, thiệp sẽ được mở khóa trong tài
-              khoản của bạn.
-            </p>
-          </CardContent>
-        </Card>
-      </main>
-      <PaymentModal
-        isProcessing={paymentStatus.isProcessing}
-        isSuccess={paymentStatus.isSuccess}
-        error={paymentStatus.error}
-        transactionHash={paymentStatus.transactionHash}
-        onClose={() =>
-          setPaymentStatus({
-            isProcessing: false,
-            isSuccess: false,
-            error: null,
-            transactionHash: undefined,
-          })
-        }
-      />
-      <Footer />
-    </div>
+          {/* Order Summary */}
+          <Card className="shadow-lg border-pink-200/60 dark:border-pink-800/40">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold flex items-center gap-2">
+                Thanh toán
+                <Badge
+                  variant="outline"
+                  className="bg-pink-50 text-pink-600 dark:bg-pink-900/20 dark:text-pink-300"
+                >
+                  Crypto
+                </Badge>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div>
+                <p className="text-lg font-medium">{template.name}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Mã: {template._id}
+                </p>
+              </div>
+
+              <div className="border-t pt-4 flex items-center justify-between text-lg font-semibold">
+                <span>Tổng:</span>
+                <span className="text-pink-600 dark:text-pink-400">
+                  {template.priceAmount.toLocaleString("vi-VN")} VNĐ
+                </span>
+              </div>
+
+              {/* Wallet connect + pay */}
+              <ConnectButton chainStatus="icon" showBalance={false} />
+              <OwnerWallet />
+
+              <Button
+                onClick={handlePay}
+                disabled={paymentStatus.isProcessing || !isConnected}
+                className="w-full bg-pink-600 hover:bg-pink-700 text-white"
+              >
+                {paymentStatus.isProcessing ? (
+                  <>
+                    <Spinner size="sm" className="mr-2" /> Đang gửi...
+                  </>
+                ) : (
+                  `Thanh toán ${PRICE_ETH} ETH`
+                )}
+              </Button>
+
+              <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+                Bạn sẽ được chuyển tới Coinbase Commerce để hoàn tất thanh toán.
+                Sau khi thanh toán thành công, thiệp sẽ được mở khóa trong tài
+                khoản của bạn.
+              </p>
+            </CardContent>
+          </Card>
+        </main>
+        <PaymentModal
+          isProcessing={paymentStatus.isProcessing}
+          isSuccess={paymentStatus.isSuccess}
+          error={paymentStatus.error}
+          transactionHash={paymentStatus.transactionHash}
+          onClose={() =>
+            setPaymentStatus({
+              isProcessing: false,
+              isSuccess: false,
+              error: null,
+              transactionHash: undefined,
+            })
+          }
+        />
+        <Footer />
+      </div>
+    </WalletWrapper>
   );
 }

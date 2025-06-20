@@ -1,13 +1,24 @@
-"use client"
-import { useEffect, useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Search, Filter, ChevronDown, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+"use client";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Search, Filter, ChevronDown, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import {
   Sheet,
   SheetContent,
@@ -17,19 +28,27 @@ import {
   SheetTrigger,
   SheetFooter,
   SheetClose,
-} from "@/components/ui/sheet"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import axios from "axios"
-import { API_ENDPOINTS } from "@/app/config/api"
-import { Template } from "@/interface/Template"
+} from "@/components/ui/sheet";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import axios from "axios";
+import { API_ENDPOINTS } from "@/app/config/api";
+import { Template } from "@/interface/Template";
 
 // Danh sách các bộ lọc
 const filters = {
-  categories: ["Tất cả", "Sang trọng", "Lãng mạn", "Tối giản", "Hoa", "Vintage", "Hiện đại"],
+  categories: [
+    "Tất cả",
+    "Sang trọng",
+    "Lãng mạn",
+    "Tối giản",
+    "Hoa",
+    "Vintage",
+    "Hiện đại",
+  ],
   prices: ["Tất cả", "Miễn phí", "Trả phí"],
-}
+};
 
 // Mapping cho categories và prices
 const categoryMap: { [key: string]: string } = {
@@ -37,15 +56,15 @@ const categoryMap: { [key: string]: string } = {
   "sang trọng": "elegant",
   "lãng mạn": "romantic",
   "tối giản": "minimalist",
-  "hoa": "floral",
-  "vintage": "vintage",
-  "hiện đại": "modern"
+  hoa: "floral",
+  vintage: "vintage",
+  "hiện đại": "modern",
 };
 
 const priceMap: { [key: string]: string } = {
   "tất cả": "all",
   "miễn phí": "free",
-  "trả phí": "paid"
+  "trả phí": "paid",
 };
 
 interface ApiResponse {
@@ -72,6 +91,7 @@ export default function TemplatesPage() {
   const fetchTemplates = async () => {
     try {
       setLoading(true);
+      console.log("API_ENDPOINTS.templates:", API_ENDPOINTS.templates);
       const response = await axios.get<ApiResponse>(API_ENDPOINTS.templates, {
         params: {
           search: searchTerm,
@@ -79,8 +99,8 @@ export default function TemplatesPage() {
           price: selectedPrice,
           sort: sortBy,
           page: currentPage,
-          limit: 12
-        }
+          limit: 12,
+        },
       });
       setTemplates(response.data.templates);
       setTotalPages(response.data.totalPages);
@@ -88,7 +108,9 @@ export default function TemplatesPage() {
       setError(null);
     } catch (error: any) {
       console.error("Error fetching templates:", error);
-      setError(error.response?.data?.message || "Lỗi khi tải danh sách mẫu thiệp");
+      setError(
+        error.response?.data?.message || "Lỗi khi tải danh sách mẫu thiệp"
+      );
       setTemplates([]);
       setTotalPages(1);
       setTotalItems(0);
@@ -199,18 +221,31 @@ export default function TemplatesPage() {
                 defaultValue={["categories", "prices"]}
                 className="space-y-4"
               >
-                <AccordionItem value="categories" className="border-gray-200 dark:border-gray-800">
+                <AccordionItem
+                  value="categories"
+                  className="border-gray-200 dark:border-gray-800"
+                >
                   <AccordionTrigger className="text-base font-medium hover:text-pink-500 py-3">
                     Danh mục
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="space-y-2 pt-1">
                       {filters.categories.map((category) => (
-                        <div key={category} className="flex items-center space-x-2">
-                          <Checkbox 
+                        <div
+                          key={category}
+                          className="flex items-center space-x-2"
+                        >
+                          <Checkbox
                             id={`category-${category}`}
-                            checked={selectedCategory === (category === "Tất cả" ? "all" : categoryMap[category.toLowerCase()])}
-                            onCheckedChange={() => handleCategoryFilter(category)}
+                            checked={
+                              selectedCategory ===
+                              (category === "Tất cả"
+                                ? "all"
+                                : categoryMap[category.toLowerCase()])
+                            }
+                            onCheckedChange={() =>
+                              handleCategoryFilter(category)
+                            }
                           />
                           <label
                             htmlFor={`category-${category}`}
@@ -224,17 +259,28 @@ export default function TemplatesPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="prices" className="border-gray-200 dark:border-gray-800">
+                <AccordionItem
+                  value="prices"
+                  className="border-gray-200 dark:border-gray-800"
+                >
                   <AccordionTrigger className="text-base font-medium hover:text-pink-500 py-3">
                     Giá
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="space-y-2 pt-1">
                       {filters.prices.map((price) => (
-                        <div key={price} className="flex items-center space-x-2">
-                          <Checkbox 
+                        <div
+                          key={price}
+                          className="flex items-center space-x-2"
+                        >
+                          <Checkbox
                             id={`price-${price}`}
-                            checked={selectedPrice === (price === "Tất cả" ? "all" : priceMap[price.toLowerCase()])}
+                            checked={
+                              selectedPrice ===
+                              (price === "Tất cả"
+                                ? "all"
+                                : priceMap[price.toLowerCase()])
+                            }
                             onCheckedChange={() => handlePriceFilter(price)}
                           />
                           <label
@@ -257,7 +303,10 @@ export default function TemplatesPage() {
             <div className="flex gap-2">
               <Sheet>
                 <SheetTrigger asChild>
-                  <Button variant="outline" className="flex items-center gap-2 border-gray-300 dark:border-gray-700">
+                  <Button
+                    variant="outline"
+                    className="flex items-center gap-2 border-gray-300 dark:border-gray-700"
+                  >
                     <Filter className="h-4 w-4" />
                     Bộ lọc
                   </Button>
@@ -265,7 +314,9 @@ export default function TemplatesPage() {
                 <SheetContent side="left" className="w-[300px] sm:w-[400px]">
                   <SheetHeader>
                     <SheetTitle>Bộ lọc</SheetTitle>
-                    <SheetDescription>Lọc mẫu thiệp theo danh mục và giá.</SheetDescription>
+                    <SheetDescription>
+                      Lọc mẫu thiệp theo danh mục và giá.
+                    </SheetDescription>
                   </SheetHeader>
                   <div className="py-4">
                     <Accordion
@@ -273,18 +324,28 @@ export default function TemplatesPage() {
                       defaultValue={["categories", "prices"]}
                       className="space-y-4"
                     >
-                      <AccordionItem value="categories" className="border-gray-200 dark:border-gray-800">
+                      <AccordionItem
+                        value="categories"
+                        className="border-gray-200 dark:border-gray-800"
+                      >
                         <AccordionTrigger className="text-base font-medium hover:text-pink-500 py-3">
                           Danh mục
                         </AccordionTrigger>
                         <AccordionContent>
                           <div className="space-y-2 pt-1">
                             {filters.categories.map((category) => (
-                              <div key={category} className="flex items-center space-x-2">
-                                <Checkbox 
+                              <div
+                                key={category}
+                                className="flex items-center space-x-2"
+                              >
+                                <Checkbox
                                   id={`mobile-category-${category}`}
-                                  checked={selectedCategory === category.toLowerCase()}
-                                  onCheckedChange={() => handleCategoryFilter(category.toLowerCase())}
+                                  checked={
+                                    selectedCategory === category.toLowerCase()
+                                  }
+                                  onCheckedChange={() =>
+                                    handleCategoryFilter(category.toLowerCase())
+                                  }
                                 />
                                 <label
                                   htmlFor={`mobile-category-${category}`}
@@ -298,18 +359,28 @@ export default function TemplatesPage() {
                         </AccordionContent>
                       </AccordionItem>
 
-                      <AccordionItem value="prices" className="border-gray-200 dark:border-gray-800">
+                      <AccordionItem
+                        value="prices"
+                        className="border-gray-200 dark:border-gray-800"
+                      >
                         <AccordionTrigger className="text-base font-medium hover:text-pink-500 py-3">
                           Giá
                         </AccordionTrigger>
                         <AccordionContent>
                           <div className="space-y-2 pt-1">
                             {filters.prices.map((price) => (
-                              <div key={price} className="flex items-center space-x-2">
-                                <Checkbox 
+                              <div
+                                key={price}
+                                className="flex items-center space-x-2"
+                              >
+                                <Checkbox
                                   id={`mobile-price-${price}`}
-                                  checked={selectedPrice === price.toLowerCase()}
-                                  onCheckedChange={() => handlePriceFilter(price.toLowerCase())}
+                                  checked={
+                                    selectedPrice === price.toLowerCase()
+                                  }
+                                  onCheckedChange={() =>
+                                    handlePriceFilter(price.toLowerCase())
+                                  }
                                 />
                                 <label
                                   htmlFor={`mobile-price-${price}`}
@@ -326,7 +397,9 @@ export default function TemplatesPage() {
                   </div>
                   <SheetFooter>
                     <SheetClose asChild>
-                      <Button className="w-full bg-pink-600 hover:bg-pink-700 text-white">Áp dụng bộ lọc</Button>
+                      <Button className="w-full bg-pink-600 hover:bg-pink-700 text-white">
+                        Áp dụng bộ lọc
+                      </Button>
                     </SheetClose>
                   </SheetFooter>
                 </SheetContent>
@@ -347,15 +420,27 @@ export default function TemplatesPage() {
 
             <div className="flex items-center gap-1">
               {selectedCategory !== "all" && (
-                <Badge variant="outline" className="flex items-center gap-1 border-gray-300 dark:border-gray-700">
+                <Badge
+                  variant="outline"
+                  className="flex items-center gap-1 border-gray-300 dark:border-gray-700"
+                >
                   {selectedCategory}
-                  <X className="h-3 w-3 cursor-pointer" onClick={() => setSelectedCategory("all")} />
+                  <X
+                    className="h-3 w-3 cursor-pointer"
+                    onClick={() => setSelectedCategory("all")}
+                  />
                 </Badge>
               )}
               {selectedPrice !== "all" && (
-                <Badge variant="outline" className="flex items-center gap-1 border-gray-300 dark:border-gray-700">
+                <Badge
+                  variant="outline"
+                  className="flex items-center gap-1 border-gray-300 dark:border-gray-700"
+                >
                   {selectedPrice}
-                  <X className="h-3 w-3 cursor-pointer" onClick={() => setSelectedPrice("all")} />
+                  <X
+                    className="h-3 w-3 cursor-pointer"
+                    onClick={() => setSelectedPrice("all")}
+                  />
                 </Badge>
               )}
             </div>
@@ -370,11 +455,17 @@ export default function TemplatesPage() {
             ) : error ? (
               <div className="text-center text-red-500 py-8">{error}</div>
             ) : !templates || templates.length === 0 ? (
-              <div className="text-center text-gray-500 py-8">Không tìm thấy mẫu thiệp nào</div>
+              <div className="text-center text-gray-500 py-8">
+                Không tìm thấy mẫu thiệp nào
+              </div>
             ) : (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {templates.map((template) => (
-                  <Link key={template._id} href={`/templates/${template._id}`} className="group">
+                  <Link
+                    key={template._id}
+                    href={`/templates/${template._id}`}
+                    className="group"
+                  >
                     <div className="relative aspect-[9/16] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-3">
                       <Image
                         src={template.thumbnail || "/placeholder.svg"}
@@ -387,7 +478,9 @@ export default function TemplatesPage() {
                         {template.price === "free" ? "Miễn phí" : "Trả phí"}
                       </Badge>
                     </div>
-                    <h3 className="font-medium group-hover:text-pink-500 transition mb-1">{template.name}</h3>
+                    <h3 className="font-medium group-hover:text-pink-500 transition mb-1">
+                      {template.name}
+                    </h3>
                   </Link>
                 ))}
               </div>
@@ -396,31 +489,35 @@ export default function TemplatesPage() {
             {/* Pagination */}
             <div className="mt-12 flex justify-center">
               <div className="flex items-center space-x-2">
-                <Button 
-                  variant="outline" 
-                  className="w-9 h-9 p-0 border-gray-300 dark:border-gray-700" 
+                <Button
+                  variant="outline"
+                  className="w-9 h-9 p-0 border-gray-300 dark:border-gray-700"
                   disabled={currentPage === 1}
                   onClick={() => handlePageChange(currentPage - 1)}
                 >
                   <span className="sr-only">Trang trước</span>
                   <ChevronDown className="h-4 w-4 rotate-90" />
                 </Button>
-                
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                  <Button
-                    key={page}
-                    variant="outline"
-                    className={`w-9 h-9 p-0 border-gray-300 dark:border-gray-700 ${
-                      currentPage === page ? "bg-pink-50 dark:bg-pink-950 border-pink-500 text-pink-500" : ""
-                    }`}
-                    onClick={() => handlePageChange(page)}
-                  >
-                    {page}
-                  </Button>
-                ))}
 
-                <Button 
-                  variant="outline" 
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (page) => (
+                    <Button
+                      key={page}
+                      variant="outline"
+                      className={`w-9 h-9 p-0 border-gray-300 dark:border-gray-700 ${
+                        currentPage === page
+                          ? "bg-pink-50 dark:bg-pink-950 border-pink-500 text-pink-500"
+                          : ""
+                      }`}
+                      onClick={() => handlePageChange(page)}
+                    >
+                      {page}
+                    </Button>
+                  )
+                )}
+
+                <Button
+                  variant="outline"
                   className="w-9 h-9 p-0 border-gray-300 dark:border-gray-700"
                   disabled={currentPage === totalPages}
                   onClick={() => handlePageChange(currentPage + 1)}
@@ -437,5 +534,5 @@ export default function TemplatesPage() {
       {/* Footer */}
       <Footer />
     </div>
-  )
+  );
 }

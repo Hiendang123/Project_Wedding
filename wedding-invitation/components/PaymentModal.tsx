@@ -101,7 +101,11 @@ export function PaymentModal({
         showCancelButton: true,
         cancelButtonText: "Đi đến trang chủ",
       }).then((result) => {
-        if (result.isConfirmed && transactionHash) {
+        if (
+          result.isConfirmed &&
+          transactionHash &&
+          typeof window !== "undefined"
+        ) {
           window.open(
             `https://sepolia.etherscan.io/tx/${transactionHash}`,
             "_blank"
@@ -111,7 +115,9 @@ export function PaymentModal({
         onClose();
         setIsVisible(false);
         // Chuyển hướng đến trang chủ
-        window.location.href = "/";
+        if (typeof window !== "undefined") {
+          window.location.href = "/";
+        }
       });
     }
   }, [isConfirmed, hasShownPopup, transactionHash, onClose]);
@@ -170,12 +176,14 @@ export function PaymentModal({
               {transactionHash && (
                 <Button
                   variant="outline"
-                  onClick={() =>
-                    window.open(
-                      `https://sepolia.etherscan.io/tx/${transactionHash}`,
-                      "_blank"
-                    )
-                  }
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      window.open(
+                        `https://sepolia.etherscan.io/tx/${transactionHash}`,
+                        "_blank"
+                      );
+                    }
+                  }}
                 >
                   Xem giao dịch
                 </Button>
