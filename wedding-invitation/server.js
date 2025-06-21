@@ -8,6 +8,7 @@ const templatesRoutes = require("./routes/templates");
 const weddingInvitationRoutes = require("./routes/weddingInvitationRoutes");
 const authRoutes = require("./routes/auth");
 const dashboardRoutes = require("./routes/dashboard");
+const currencyRoutes = require("./routes/currencyRoutes");
 const {
   testGoogleSheets,
   testGoogleAI,
@@ -65,6 +66,7 @@ app.use("/api/users", usersRoutes);
 app.use("/api/templates", templatesRoutes);
 app.use("/api/wedding-invitations", weddingInvitationRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/currency", currencyRoutes);
 
 // AI and Google Sheets routes
 app.get("/api/test-google-sheets", testGoogleSheets);

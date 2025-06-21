@@ -23,6 +23,10 @@ import { OwnerWallet } from "@/components/OwnerWallet";
 import { PaymentModal } from "@/components/PaymentModal";
 import { WalletWrapper } from "@/components/WalletWrapper";
 
+// 🏴‍☠️ Currency Converter - GenG Style
+import { useAutoConvertTemplate } from "@/hooks/useCurrencyConverter";
+import { CurrencyDisplay } from "@/components/CurrencyDisplay";
+
 interface ChargeRes {
   hosted_url: string;
 }
@@ -46,6 +50,9 @@ export default function CheckoutPage() {
   const { switchChainAsync } = useSwitchChain();
   const { sendTransactionAsync } = useSendTransaction();
 
+  // 🏴‍☠️ Currency converter hook - tự động convert khi có template price
+  const currencyConverter = useAutoConvertTemplate(template?.priceAmount);
+
   useEffect(() => {
     const fetchTemplate = async () => {
       try {
@@ -63,7 +70,6 @@ export default function CheckoutPage() {
   }, [id]);
 
   const RECEIVER = "0x388DefF73DeA6ae08761051c9fa6EA7ac89D8a90";
-  const PRICE_ETH = "0.001"; // demo – có thể map từ template
 
   const handlePay = async () => {
     if (!template) return;
@@ -71,6 +77,16 @@ export default function CheckoutPage() {
       setError("Vui lòng kết nối ví trước.");
       return;
     }
+
+    // 🚀 Kiểm tra có conversion result chưa
+    if (!currencyConverter.conversionResult) {
+      setError("Đang tính toán tỷ giá, vui lòng đợi...");
+      return;
+    }
+
+    const ethAmount = currencyConverter.formatEthForTransaction(
+      currencyConverter.conversionResult.ethAmount
+    );
 
     try {
       // Set processing state first
@@ -87,7 +103,7 @@ export default function CheckoutPage() {
 
       const result = await sendTransactionAsync({
         to: RECEIVER as `0x${string}`,
-        value: parseEther(PRICE_ETH),
+        value: parseEther(ethAmount),
       });
 
       let txHash: string | undefined = undefined;
@@ -190,21 +206,38 @@ export default function CheckoutPage() {
                 </span>
               </div>
 
+              {/* 🏴‍☠️ Currency Display - GenG Style */}
+              <CurrencyDisplay
+                conversionResult={currencyConverter.conversionResult}
+                isLoading={currencyConverter.isLoading}
+                error={currencyConverter.error}
+                onRefresh={currencyConverter.refreshRates}
+                className="my-4"
+              />
+
               {/* Wallet connect + pay */}
               <ConnectButton chainStatus="icon" showBalance={false} />
               <OwnerWallet />
 
               <Button
                 onClick={handlePay}
-                disabled={paymentStatus.isProcessing || !isConnected}
+                disabled={
+                  paymentStatus.isProcessing ||
+                  !isConnected ||
+                  !currencyConverter.conversionResult
+                }
                 className="w-full bg-pink-600 hover:bg-pink-700 text-white"
               >
                 {paymentStatus.isProcessing ? (
                   <>
                     <Spinner size="sm" className="mr-2" /> Đang gửi...
                   </>
+                ) : currencyConverter.conversionResult ? (
+                  `Thanh toán ${currencyConverter.conversionResult.formattedEth} ETH`
                 ) : (
-                  `Thanh toán ${PRICE_ETH} ETH`
+                  <>
+                    <Spinner size="sm" className="mr-2" /> Đang tính toán...
+                  </>
                 )}
               </Button>
 
