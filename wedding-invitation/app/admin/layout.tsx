@@ -1,57 +1,57 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
-import { User } from "@/lib/auth"
-import AdminSidebar from "@/components/admin/admin-sidebar"
-import { API_BASE_URL } from "@/app/config/api"
-import { Spinner } from "@/components/ui/spinner"
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { User } from "@/lib/auth";
+import AdminSidebar from "@/components/admin/admin-sidebar";
+import { API_BASE_URL } from "@/app/config/api";
+import { Spinner } from "@/components/ui/spinner";
 
 export default function AdminLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  const router = useRouter()
-  const [user, setUser] = useState<User | null>(null)
-  const [loading, setLoading] = useState(true)
+  const router = useRouter();
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
         const response = await fetch(`${API_BASE_URL}/auth/me`, {
-          credentials: 'include',
+          credentials: "include",
           headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        })
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
         if (!response.ok) {
-          router.push("/login")
-          return
+          router.push("/login");
+          return;
         }
-        const data = await response.json()
+        const data = await response.json();
         if (data.user.role !== "admin") {
-          router.push("/")
-          return
+          router.push("/");
+          return;
         }
-        setUser(data.user)
+        setUser(data.user);
       } catch (error) {
-        console.error("Auth check error:", error)
-        router.push("/login")
+        console.error("Auth check error:", error);
+        router.push("/login");
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    checkAuth()
-  }, [router])
+    checkAuth();
+  }, [router]);
 
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
         <Spinner size="lg" />
       </div>
-    )
+    );
   }
 
   return (
@@ -63,5 +63,5 @@ export default function AdminLayout({
         </main>
       </div>
     </div>
-  )
+  );
 }

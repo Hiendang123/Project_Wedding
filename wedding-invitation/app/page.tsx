@@ -1,16 +1,23 @@
-"use client"
-import Image from "next/image"
-import Link from "next/link"
-import { ChevronRight, Sparkles, PenTool, Share2, Users, Heart } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { API_ENDPOINTS } from "@/app/config/api"
-import { Template } from "@/interface/Template"
-import { Chatbot } from '@/components/ui/chatbot'
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ChevronRight,
+  Sparkles,
+  PenTool,
+  Share2,
+  Users,
+  Heart,
+} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { API_ENDPOINTS } from "@/app/config/api";
+import { Template } from "@/interface/Template";
+import { Chatbot } from "@/components/ui/chatbot";
 
 interface ApiResponse {
   templates: Template[];
@@ -29,9 +36,9 @@ export default function LandingPage() {
       try {
         const response = await axios.get<ApiResponse>(API_ENDPOINTS.templates, {
           params: {
-            sort: 'newest',
-            limit: 4
-          }
+            sort: "newest",
+            limit: 4,
+          },
         });
         setTemplates(response.data.templates);
       } catch (error) {
@@ -57,7 +64,8 @@ export default function LandingPage() {
             <span className="text-pink-500">độc đáo</span>
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-            Tạo thiệp cưới online dễ dàng, nhanh chóng và chia sẻ với người thân, bạn bè chỉ với vài bước đơn giản.
+            Tạo thiệp cưới online dễ dàng, nhanh chóng và chia sẻ với người
+            thân, bạn bè chỉ với vài bước đơn giản.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/templates">
@@ -97,9 +105,12 @@ export default function LandingPage() {
       <section id="features" className="bg-gray-50 dark:bg-gray-950 py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Tính năng nổi bật</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Tính năng nổi bật
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Chúng tôi cung cấp những công cụ tốt nhất để bạn tạo ra thiệp cưới online ấn tượng
+              Chúng tôi cung cấp những công cụ tốt nhất để bạn tạo ra thiệp cưới
+              online ấn tượng
             </p>
           </div>
 
@@ -110,7 +121,8 @@ export default function LandingPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Tùy chỉnh dễ dàng</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Chọn mẫu thiệp và tùy chỉnh thông tin, hình ảnh theo ý muốn của bạn một cách dễ dàng.
+                Chọn mẫu thiệp và tùy chỉnh thông tin, hình ảnh theo ý muốn của
+                bạn một cách dễ dàng.
               </p>
             </div>
 
@@ -120,7 +132,8 @@ export default function LandingPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Chia sẻ nhanh chóng</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Chia sẻ thiệp cưới của bạn qua nhiều nền tảng khác nhau chỉ với một cú nhấp chuột.
+                Chia sẻ thiệp cưới của bạn qua nhiều nền tảng khác nhau chỉ với
+                một cú nhấp chuột.
               </p>
             </div>
 
@@ -128,9 +141,12 @@ export default function LandingPage() {
               <div className="bg-pink-600/20 p-4 rounded-full w-fit mb-6">
                 <Users className="h-6 w-6 text-pink-500" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Tương tác với khách mời</h3>
+              <h3 className="text-xl font-bold mb-3">
+                Tương tác với khách mời
+              </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Theo dõi lượt xem, phản hồi từ khách mời và quản lý danh sách khách dễ dàng.
+                Theo dõi lượt xem, phản hồi từ khách mời và quản lý danh sách
+                khách dễ dàng.
               </p>
             </div>
           </div>
@@ -141,7 +157,9 @@ export default function LandingPage() {
       <section id="templates" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Mẫu thiệp đa dạng</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Mẫu thiệp đa dạng
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Chọn từ bộ sưu tập mẫu thiệp cưới đa dạng và độc đáo của chúng tôi
             </p>
@@ -154,38 +172,47 @@ export default function LandingPage() {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {templates.map((template) => (
-                <Link key={template._id} href={`/templates/${template._id}`} className="group">
-                <div className="relative aspect-[9/16] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-3">
-                  <Image
-                    src={template.thumbnail || "/placeholder.svg"}
-                    alt={template.name}
-                    width={225}
-                    height={400}
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
-                  />
-                  <Badge className="absolute top-3 right-3 bg-pink-600 hover:bg-pink-700">
-                    {template.price === "free" ? "Miễn phí" : "Trả phí"}
-                  </Badge>
-                </div>
-                <h3 className="font-medium group-hover:text-pink-500 transition mb-1">{template.name}</h3>
-                {template.price !== 'free' && (
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-500">
-                      {template.priceAmount.toLocaleString('vi-VN')} VNĐ
-                    </span>
-                    <span className="text-gray-500 line-through">
-                      {template.comparePrice.toLocaleString('vi-VN')} VNĐ
-                    </span>
+                <Link
+                  key={template._id}
+                  href={`/templates/${template._id}`}
+                  className="group"
+                >
+                  <div className="relative aspect-[9/16] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-3">
+                    <Image
+                      src={template.thumbnail || "/placeholder.svg"}
+                      alt={template.name}
+                      width={225}
+                      height={400}
+                      className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                    />
+                    <Badge className="absolute top-3 right-3 bg-pink-600 hover:bg-pink-700">
+                      {template.price === "free" ? "Miễn phí" : "Trả phí"}
+                    </Badge>
                   </div>
-                )}
-              </Link>
+                  <h3 className="font-medium group-hover:text-pink-500 transition mb-1">
+                    {template.name}
+                  </h3>
+                  {template.price !== "free" && (
+                    <div className="flex items-center gap-2">
+                      <span className="text-green-500">
+                        {template.priceAmount.toLocaleString("vi-VN")} VNĐ
+                      </span>
+                      <span className="text-gray-500 line-through">
+                        {template.comparePrice.toLocaleString("vi-VN")} VNĐ
+                      </span>
+                    </div>
+                  )}
+                </Link>
               ))}
             </div>
           )}
 
           <div className="text-center mt-10">
             <Link href="/templates">
-              <Button variant="outline" className="border-pink-500 text-pink-500 hover:bg-pink-50 dark:hover:bg-pink-950">
+              <Button
+                variant="outline"
+                className="border-pink-500 text-pink-500 hover:bg-pink-50 dark:hover:bg-pink-950"
+              >
                 Xem tất cả mẫu thiệp
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
@@ -198,9 +225,12 @@ export default function LandingPage() {
       <section id="how-it-works" className="bg-gray-50 dark:bg-gray-950 py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Cách thức hoạt động</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Cách thức hoạt động
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Chỉ với 3 bước đơn giản, bạn đã có thể tạo và chia sẻ thiệp cưới online của mình
+              Chỉ với 3 bước đơn giản, bạn đã có thể tạo và chia sẻ thiệp cưới
+              online của mình
             </p>
           </div>
 
@@ -209,17 +239,20 @@ export default function LandingPage() {
               {
                 step: 1,
                 title: "Chọn mẫu thiệp",
-                description: "Lựa chọn mẫu thiệp phù hợp với phong cách của bạn từ bộ sưu tập đa dạng.",
+                description:
+                  "Lựa chọn mẫu thiệp phù hợp với phong cách của bạn từ bộ sưu tập đa dạng.",
               },
               {
                 step: 2,
                 title: "Tùy chỉnh thông tin",
-                description: "Nhập thông tin cá nhân, hình ảnh và tùy chỉnh thiệp theo ý muốn.",
+                description:
+                  "Nhập thông tin cá nhân, hình ảnh và tùy chỉnh thiệp theo ý muốn.",
               },
               {
                 step: 3,
                 title: "Chia sẻ thiệp cưới",
-                description: "Nhận link thiệp cưới và chia sẻ với bạn bè, người thân một cách dễ dàng.",
+                description:
+                  "Nhận link thiệp cưới và chia sẻ với bạn bè, người thân một cách dễ dàng.",
               },
             ].map((item) => (
               <div key={item.step} className="relative">
@@ -228,7 +261,9 @@ export default function LandingPage() {
                     {item.step}
                   </div>
                   <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {item.description}
+                  </p>
                 </div>
                 {item.step < 3 && (
                   <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
@@ -245,7 +280,9 @@ export default function LandingPage() {
       <section id="testimonials" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Khách hàng nói gì về chúng tôi</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Khách hàng nói gì về chúng tôi
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Hàng ngàn cặp đôi đã tin tưởng và sử dụng dịch vụ của chúng tôi
             </p>
@@ -272,7 +309,10 @@ export default function LandingPage() {
                   "Dịch vụ khách hàng tuyệt vời. Họ đã giúp chúng tôi tùy chỉnh thiệp theo ý muốn một cách nhanh chóng.",
               },
             ].map((item, index) => (
-              <div key={index} className="bg-white dark:bg-black p-8 rounded-xl border border-pink-500/20 shadow-sm">
+              <div
+                key={index}
+                className="bg-white dark:bg-black p-8 rounded-xl border border-pink-500/20 shadow-sm"
+              >
                 <div className="flex items-center gap-2 mb-4">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <svg
@@ -286,10 +326,14 @@ export default function LandingPage() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">"{item.content}"</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  "{item.content}"
+                </p>
                 <div className="flex justify-between items-center">
                   <p className="font-bold">{item.name}</p>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">{item.date}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">
+                    {item.date}
+                  </p>
                 </div>
               </div>
             ))}
@@ -300,9 +344,12 @@ export default function LandingPage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-pink-100 to-white dark:from-pink-900/40 dark:to-black">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Sẵn sàng tạo thiệp cưới của bạn?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Sẵn sàng tạo thiệp cưới của bạn?
+          </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10">
-            Bắt đầu ngay hôm nay và tạo ra thiệp cưới online ấn tượng cho ngày trọng đại của bạn
+            Bắt đầu ngay hôm nay và tạo ra thiệp cưới online ấn tượng cho ngày
+            trọng đại của bạn
           </p>
           <Button className="bg-pink-600 hover:bg-pink-700 text-white text-lg py-6 px-10">
             Tạo thiệp ngay
@@ -317,5 +364,5 @@ export default function LandingPage() {
       {/* Chatbot */}
       <Chatbot />
     </div>
-  )
+  );
 }

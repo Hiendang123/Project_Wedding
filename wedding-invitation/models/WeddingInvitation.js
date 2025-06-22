@@ -1,51 +1,52 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const weddingInvitationSchema = new mongoose.Schema({
   template: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'templates',
-    required: true
+    ref: "templates",
+    required: true,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users',
-    required: true
+    ref: "users",
+    required: false, // Allow null for demo/guest users
+    default: null,
   },
   fields: {
     type: Map,
     of: String,
-    required: true
+    required: true,
   },
   groomName: {
     type: String,
-    required: true
+    required: true,
   },
   brideName: {
     type: String,
-    required: true
+    required: true,
   },
   status: {
     type: String,
-    enum: ['draft', 'published'],
-    default: 'draft'
+    enum: ["draft", "published"],
+    default: "draft",
   },
   slug: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updatedAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 // Middleware để cập nhật updatedAt
-weddingInvitationSchema.pre('save', function(next) {
+weddingInvitationSchema.pre("save", function (next) {
   this.updatedAt = Date.now();
   next();
 });
@@ -53,4 +54,4 @@ weddingInvitationSchema.pre('save', function(next) {
 // Tạo index cho slug
 weddingInvitationSchema.index({ slug: 1 });
 
-module.exports = mongoose.model('wedding_invitations', weddingInvitationSchema); 
+module.exports = mongoose.model("wedding_invitations", weddingInvitationSchema);

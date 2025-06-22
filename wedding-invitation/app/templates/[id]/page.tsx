@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import { useEffect, useState, useRef } from "react"
-import { useParams, useRouter } from "next/navigation"
-import { ArrowLeft, Save } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import { Spinner } from "@/components/ui/spinner"
-import axios from "axios"
-import { API_ENDPOINTS, API_BASE_URL } from "@/app/config/api"
-import { toast } from "sonner"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Badge } from "@/components/ui/badge"
-import { Template } from "@/interface/Template"
+import { useEffect, useState, useRef } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { ArrowLeft, Save } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { Spinner } from "@/components/ui/spinner";
+import axios from "axios";
+import { API_ENDPOINTS, API_BASE_URL } from "@/app/config/api";
+import { toast } from "sonner";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { Template } from "@/interface/Template";
 
 interface User {
   id: string;
@@ -26,7 +26,9 @@ interface UserResponse {
   user: User;
 }
 
-const getCategoryBadgeVariant = (category: string): "default" | "secondary" | "destructive" | "outline" => {
+const getCategoryBadgeVariant = (
+  category: string
+): "default" | "secondary" | "destructive" | "outline" => {
   switch (category) {
     case "elegant":
       return "default";
@@ -52,12 +54,14 @@ const getCategoryLabel = (category: string): string => {
     minimalist: "Tối giản",
     floral: "Hoa lá",
     vintage: "Cổ điển",
-    modern: "Hiện đại"
+    modern: "Hiện đại",
   };
   return categories[category] || category;
 };
 
-const getStatusBadgeVariant = (status: string): "default" | "secondary" | "destructive" | "outline" => {
+const getStatusBadgeVariant = (
+  status: string
+): "default" | "secondary" | "destructive" | "outline" => {
   switch (status) {
     case "published":
       return "default";
@@ -74,89 +78,98 @@ const getStatusLabel = (status: string): string => {
   const statuses: Record<string, string> = {
     published: "Đã xuất bản",
     review: "Đang xét duyệt",
-    draft: "Bản nháp"
+    draft: "Bản nháp",
   };
   return statuses[status] || status;
 };
 
 export default function TemplateDetailPage() {
-  const params = useParams()
-  const router = useRouter()
-  const [template, setTemplate] = useState<Template | null>(null)
-  const [user, setUser] = useState<User | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const [previewValues, setPreviewValues] = useState<Record<string, string>>({})
-  const [isSaving, setIsSaving] = useState(false)
-  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const params = useParams();
+  const router = useRouter();
+  const [template, setTemplate] = useState<Template | null>(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [previewValues, setPreviewValues] = useState<Record<string, string>>(
+    {}
+  );
+  const [isSaving, setIsSaving] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   // Fetch template data
   useEffect(() => {
     const fetchTemplate = async () => {
       try {
-        setLoading(true)
-        const response = await axios.get(`${API_ENDPOINTS.templates}/${params.id}`)
-        const templateData = response.data as Template
-        setTemplate(templateData)
-        
+        setLoading(true);
+        const response = await axios.get(
+          `${API_ENDPOINTS.templates}/${params.id}`
+        );
+        const templateData = response.data as Template;
+        setTemplate(templateData);
+
         // Initialize preview values with default values
-        const initialValues: Record<string, string> = {}
+        const initialValues: Record<string, string> = {};
         templateData.dynamicFields.forEach((field) => {
-          initialValues[field.name] = field.defaultValue || ''
-        })
-        setPreviewValues(initialValues)
-        
+          initialValues[field.name] = field.defaultValue || "";
+        });
+        setPreviewValues(initialValues);
+
         // Check authentication
-        const token = localStorage.getItem("token")
+        const token = localStorage.getItem("token");
         if (token) {
           const userRes = await axios.get(`${API_BASE_URL}/auth/me`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
-          })
+          });
           if (userRes.data) {
-            setUser((userRes.data as UserResponse).user)
+            setUser((userRes.data as UserResponse).user);
           }
         }
 
-        setError(null)
+        setError(null);
       } catch (error: any) {
-        console.error("Error fetching template:", error)
-        setError(error.response?.data?.message || "Lỗi khi tải thông tin mẫu thiệp")
+        console.error("Error fetching template:", error);
+        setError(
+          error.response?.data?.message || "Lỗi khi tải thông tin mẫu thiệp"
+        );
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }      
+    };
 
     if (params.id) {
-      fetchTemplate()
+      fetchTemplate();
     }
-  }, [params.id])
+  }, [params.id]);
 
   // Update iframe content when template or preview values change
   useEffect(() => {
-    if (!template) return
+    if (!template) return;
 
     // Function to replace placeholders in HTML/CSS with actual values
     const replacePlaceholders = (content: string) => {
-      let result = content
+      let result = content;
       Object.entries(previewValues).forEach(([key, value]) => {
-        const placeholder = `{{${key}}}`
+        const placeholder = `{{${key}}}`;
         // Xử lý đặc biệt cho ảnh
-        if (key.includes('ảnh') || key.includes('image')) {
+        if (key.includes("ảnh") || key.includes("image")) {
           // Nếu là URL ảnh, giữ nguyên
-          if (value.startsWith('http') || value.startsWith('/')) {
-            result = result.replace(new RegExp(placeholder, 'g'), value)
+          if (value.startsWith("http") || value.startsWith("/")) {
+            result = result.replace(new RegExp(placeholder, "g"), value);
           } else {
             // Nếu không phải URL, thay thế bằng ảnh mặc định
-            result = result.replace(new RegExp(placeholder, 'g'), '/placeholder-image.jpg')
+            result = result.replace(
+              new RegExp(placeholder, "g"),
+              "/placeholder-image.jpg"
+            );
           }
         } else {
-          result = result.replace(new RegExp(placeholder, 'g'), value)
+          result = result.replace(new RegExp(placeholder, "g"), value);
         }
-      })
-      return result
-    }
+      });
+      return result;
+    };
 
     // Create iframe content
     const iframeContent = `
@@ -176,98 +189,121 @@ export default function TemplateDetailPage() {
           </script>
         </body>
       </html>
-    `
-    
+    `;
+
     // Update iframe srcDoc
     const updateIframe = () => {
       if (iframeRef.current) {
-        iframeRef.current.srcdoc = iframeContent
+        iframeRef.current.srcdoc = iframeContent;
       }
-    }
+    };
 
     // Try to update immediately
-    updateIframe()
+    updateIframe();
 
     // If iframe is not ready, wait for it
     if (!iframeRef.current) {
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-          if (mutation.type === 'childList' && iframeRef.current) {
-            updateIframe()
-            observer.disconnect()
+          if (mutation.type === "childList" && iframeRef.current) {
+            updateIframe();
+            observer.disconnect();
           }
-        })
-      })
+        });
+      });
 
       observer.observe(document.body, {
         childList: true,
-        subtree: true
-      })
+        subtree: true,
+      });
 
       // Cleanup observer after 5 seconds
-      setTimeout(() => observer.disconnect(), 5000)
+      setTimeout(() => observer.disconnect(), 5000);
     }
-  }, [template, previewValues])
+  }, [template, previewValues]);
 
   // Function to handle input changes
   const handleInputChange = (fieldName: string, value: string) => {
-    setPreviewValues(prev => ({
+    setPreviewValues((prev) => ({
       ...prev,
-      [fieldName]: value
-    }))
-  }
+      [fieldName]: value,
+    }));
+  };
 
   // Function to format date for input
   const formatDateForInput = (dateStr: string | undefined) => {
-    if (!dateStr) return ''
-    
+    if (!dateStr) return "";
+
     // Convert from DD/MM/YYYY to YYYY-MM-DD
-    const [day, month, year] = dateStr.split("/")
+    const [day, month, year] = dateStr.split("/");
     if (day && month && year) {
-      return `${year}-${month}-${day}`
+      return `${year}-${month}-${day}`;
     }
-    return dateStr
-  }
+    return dateStr;
+  };
 
   const handleSave = async () => {
     if (!user) {
       // Save current URL and redirect to login
-      localStorage.setItem("returnUrl", window.location.href)
-      router.push("/login")
-      return
+      localStorage.setItem("returnUrl", window.location.href);
+      router.push("/login");
+      return;
     }
 
-    setIsSaving(true)
+    setIsSaving(true);
     try {
-      const response = await axios.post(`${API_BASE_URL}/wedding-invitations`, {
+      // 🏴‍☠️ Add timestamp to avoid duplicates - GenG style!
+      const timestamp = Date.now();
+      const modifiedFields = {
+        ...previewValues,
+        tên_cô_dâu: `${previewValues.tên_cô_dâu || "Cô Dâu"} ${timestamp}`,
+        tên_chú_rể: `${previewValues.tên_chú_rể || "Chú Rể"} ${timestamp}`,
+      };
+
+      console.log("🔍 Data before sending:", {
         templateId: template?._id,
-        userId: user?.id,
-        fields: previewValues,
-        groomName: previewValues['tên_cô_dâu'],
-        brideName: previewValues['tên_chú_rể'],
-      }, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
+        userId: user?.id || null,
+        fields: modifiedFields,
+        fieldsKeys: Object.keys(modifiedFields),
+      });
 
-      if (!response.data) throw new Error("Failed to save")
+      const response = await axios.post(`/api/wedding-invitations`, {
+        templateId: template?._id,
+        userId: user?.id || null,
+        fields: modifiedFields,
+      });
 
-      const data = response.data as { data: { slug: string } }
-      toast.success("Saved successfully")
-      router.push(`/wedding/${data.data.slug}`)
+      if (!response.data) throw new Error("Failed to save");
+
+      console.log("🔍 API response:", response.data);
+
+      // API response structure: { message: "...", slug: "...", data: {...} }
+      const responseData = response.data as {
+        message: string;
+        slug?: string;
+        data?: any;
+      };
+
+      const slug = responseData.slug;
+      if (slug) {
+        toast.success("Lưu thành công!");
+        console.log("🏴‍☠️ Redirecting to:", `/wedding/${slug}`);
+        router.push(`/wedding/${slug}`);
+      } else {
+        throw new Error("Không nhận được slug từ server");
+      }
     } catch (error) {
-      console.error("Save error:", error)
-      toast.error("Failed to save")
+      console.error("Save error:", error);
+      toast.error("Failed to save");
     } finally {
-      setIsSaving(false)
+      setIsSaving(false);
     }
-  }
+  };
 
   const handleCreateInvitation = () => {
     if (!template) return;
-    
-    if (template.price === 'paid') {
+
+    if (template.price === "paid") {
       // TODO: Implement payment flow
       toast.error("Tính năng thanh toán đang được phát triển");
       return;
@@ -278,9 +314,14 @@ export default function TemplateDetailPage() {
 
   const handleAction = () => {
     if (!template) return;
-    if (template.price === 'free') {
+    if (template.price === "free") {
       handleSave();
     } else {
+      // 🏴‍☠️ Save current preview values to localStorage before checkout - GenG style!
+      localStorage.setItem(
+        `template_${template._id}_previewValues`,
+        JSON.stringify(previewValues)
+      );
       router.push(`/checkout/${template._id}`);
     }
   };
@@ -296,7 +337,7 @@ export default function TemplateDetailPage() {
         </main>
         <Footer />
       </div>
-    )
+    );
   }
 
   if (error || !template) {
@@ -304,11 +345,13 @@ export default function TemplateDetailPage() {
       <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white">
         <Header />
         <main className="container mx-auto py-8 px-4">
-          <div className="text-center text-red-500 py-8">{error || "Không tìm thấy mẫu thiệp"}</div>
+          <div className="text-center text-red-500 py-8">
+            {error || "Không tìm thấy mẫu thiệp"}
+          </div>
         </main>
         <Footer />
       </div>
-    )
+    );
   }
 
   return (
@@ -317,42 +360,58 @@ export default function TemplateDetailPage() {
       <main className="container mx-auto py-8 px-4">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
-            <Button variant="outline" size="icon" onClick={() => window.history.back()} className="h-9 w-9">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => window.history.back()}
+              className="h-9 w-9"
+            >
               <ArrowLeft className="h-4 w-4" />
               <span className="sr-only">Quay lại</span>
             </Button>
-            <h1 className="text-3xl font-bold tracking-tight">{template.name}</h1>
+            <h1 className="text-3xl font-bold tracking-tight">
+              {template.name}
+            </h1>
           </div>
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              {template.price === 'free' ? (
-                <Badge variant="outline" className="bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400">
+              {template.price === "free" ? (
+                <Badge
+                  variant="outline"
+                  className="bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400"
+                >
                   Miễn phí
                 </Badge>
               ) : (
                 <div className="flex flex-col items-end">
                   <div className="text-2xl font-bold text-pink-600">
-                    {template.priceAmount.toLocaleString('vi-VN')} VNĐ
+                    {template.priceAmount.toLocaleString("vi-VN")} VNĐ
                   </div>
                   {template.comparePrice > 0 && (
                     <div className="text-sm text-gray-500 line-through">
-                      {template.comparePrice.toLocaleString('vi-VN')} VNĐ
+                      {template.comparePrice.toLocaleString("vi-VN")} VNĐ
                     </div>
                   )}
                 </div>
               )}
             </div>
-            <Button 
+            <Button
               onClick={handleAction}
-              disabled={template.price === 'free' ? isSaving : false}
+              disabled={template.price === "free" ? isSaving : false}
               className="bg-pink-600 hover:bg-pink-700 text-white"
             >
-              {template.price === 'free' ? (isSaving ? (
-                <>
-                  <Spinner size="sm" className="mr-2" />
-                  Đang lưu...
-                </>
-              ) : 'Lưu') : 'Thanh toán'}
+              {template.price === "free" ? (
+                isSaving ? (
+                  <>
+                    <Spinner size="sm" className="mr-2" />
+                    Đang lưu...
+                  </>
+                ) : (
+                  "Lưu"
+                )
+              ) : (
+                "Thanh toán"
+              )}
             </Button>
           </div>
         </div>
@@ -381,8 +440,8 @@ export default function TemplateDetailPage() {
                 </p>
                 <Button
                   onClick={() => {
-                    localStorage.setItem("returnUrl", window.location.href)
-                    router.push("/login")
+                    localStorage.setItem("returnUrl", window.location.href);
+                    router.push("/login");
                   }}
                 >
                   Đăng nhập
@@ -398,15 +457,23 @@ export default function TemplateDetailPage() {
                         <input
                           type="color"
                           value={previewValues[field.name]}
-                          onChange={(e) => handleInputChange(field.name, e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange(field.name, e.target.value)
+                          }
                           className="w-full h-10 rounded-md border border-gray-300 dark:border-gray-700"
                         />
                       ) : (
                         <Input
                           id={field.id}
                           type={field.type === "date" ? "date" : "text"}
-                          value={field.type === "date" ? formatDateForInput(previewValues[field.name]) : previewValues[field.name]}
-                          onChange={(e) => handleInputChange(field.name, e.target.value)}
+                          value={
+                            field.type === "date"
+                              ? formatDateForInput(previewValues[field.name])
+                              : previewValues[field.name]
+                          }
+                          onChange={(e) =>
+                            handleInputChange(field.name, e.target.value)
+                          }
                           placeholder={field.description}
                         />
                       )}
@@ -415,15 +482,21 @@ export default function TemplateDetailPage() {
                 </div>
                 <Button
                   onClick={handleAction}
-                  disabled={template.price === 'free' ? isSaving : false}
+                  disabled={template.price === "free" ? isSaving : false}
                   className="w-full"
                 >
-                  {template.price === 'free' ? (isSaving ? (
-                    <>
-                      <Spinner size="sm" className="mr-2" />
-                      Đang lưu...
-                    </>
-                  ) : 'Lưu') : 'Thanh toán'}
+                  {template.price === "free" ? (
+                    isSaving ? (
+                      <>
+                        <Spinner size="sm" className="mr-2" />
+                        Đang lưu...
+                      </>
+                    ) : (
+                      "Lưu"
+                    )
+                  ) : (
+                    "Thanh toán"
+                  )}
                 </Button>
               </>
             )}
@@ -432,5 +505,5 @@ export default function TemplateDetailPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

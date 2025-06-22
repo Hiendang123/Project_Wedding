@@ -7,7 +7,7 @@ const isBrowser = typeof window !== "undefined";
 //  3. As a last resort, use the current origin when running in the browser (helps during dev if proxy/rewrite is configured).
 const PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-const API_PORT = process.env.SERVER_PORT || 3001;
+const API_PORT = process.env.SERVER_PORT || process.env.PORT || 3001;
 
 // Decide base URL intelligently
 export const API_BASE_URL = PUBLIC_BASE_URL
@@ -27,10 +27,17 @@ if (isBrowser) {
 export const API_ENDPOINTS = {
   users: `${API_BASE_URL}/users`,
   templates: `${API_BASE_URL}/templates`,
-  weddingInvitations: `${API_BASE_URL}/wedding-invitations`,
+  // 🏴‍☠️ Wedding invitations API - GenG style!
+  weddingInvitations: `/api/wedding-invitations`,
   login: `${API_BASE_URL}/auth/login`,
   logout: `${API_BASE_URL}/auth/logout`,
   register: `${API_BASE_URL}/auth/register`,
   dashboard: `${API_BASE_URL}/dashboard`,
+  // 🏴‍☠️ Stripe endpoints - GenG style!
+  stripe: {
+    createPaymentIntent: `/api/stripe/create-payment-intent`,
+    confirmPayment: `/api/stripe/confirm-payment`,
+    paymentStatus: `/api/stripe/payment-status`,
+  },
   // Add other endpoints here as needed
 } as const;
