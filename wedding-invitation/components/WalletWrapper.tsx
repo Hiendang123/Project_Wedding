@@ -1,39 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
+import { useHydration } from "@/hooks/useHydration";
 
 interface WalletWrapperProps {
   children: React.ReactNode;
 }
 
 export function WalletWrapper({ children }: WalletWrapperProps) {
-  const [isMounted, setIsMounted] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+  const isHydrated = useHydration();
 
-  useEffect(() => {
-    // 🏴‍☠️ Double check for client-side environment - GenG style!
-    setIsClient(typeof window !== "undefined");
-    setIsMounted(true);
-  }, []);
-
-  // 🎯 Show loading while hydrating - GenG approved!
-  if (!isMounted || !isClient) {
+  // 🎯 Always show loading during SSR and hydration - GenG approved!
+  if (!isHydrated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black">
-        <Spinner size="lg" />
+        <div className="text-center space-y-4">
+          <Spinner size="lg" />
+          <p className="text-gray-600 dark:text-gray-400">
+            Đang tải ứng dụng...
+          </p>
+        </div>
       </div>
     );
   }
 
-  // 🏴‍☠️ Additional check for browser APIs - GenG style!
-  if (typeof window === "undefined" || typeof document === "undefined") {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black">
-        <Spinner size="lg" />
-      </div>
-    );
-  }
-
+  // 🚀 Render children after successful hydration
   return <>{children}</>;
 }
